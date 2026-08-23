@@ -1,0 +1,47 @@
+<section class="page-hero">
+  <div class="page-container">
+    <div class="mx-auto max-w-4xl text-center">
+      <p class="eyebrow">Live product walkthrough</p>
+      <h1 class="page-title mx-auto mt-5">See OrderBridge in action.</h1>
+      <p class="page-intro mx-auto">Choose a convenient time for a focused demo and pilot conversation built around your food business.</p>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-6xl space-y-8">
+      <aside class="rounded-2xl border border-[#dce5df] bg-white p-7 shadow-[0_20px_60px_rgba(24,54,34,0.07)] sm:p-9">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#0b9340]">What to expect</p>
+            <h2 class="mt-3 max-w-md text-2xl font-semibold tracking-[-0.025em] sm:text-3xl">A practical 30-minute conversation.</h2>
+            <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm leading-6 text-[#617669]">
+              <p><strong class="font-semibold text-[#1c2c21]">Monday–Friday</strong>, 9:00 AM–6:00 PM</p>
+              <p><strong class="font-semibold text-[#1c2c21]">Africa/Accra</strong> (GMT)</p>
+            </div>
+          </div>
+
+          <ul class="grid gap-4 text-sm leading-6 text-[#5f7466] sm:grid-cols-3 lg:grid-cols-1">
+            <li class="flex gap-3 rounded-xl bg-[#f5faf6] p-4"><span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-[#dff6e6] text-xs font-bold text-[#0b9340]">✓</span><span>A walkthrough of WhatsApp ordering and restaurant operations.</span></li>
+            <li class="flex gap-3 rounded-xl bg-[#f5faf6] p-4"><span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-[#dff6e6] text-xs font-bold text-[#0b9340]">✓</span><span>A discussion about your current customer and order workflow.</span></li>
+            <li class="flex gap-3 rounded-xl bg-[#f5faf6] p-4"><span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-[#dff6e6] text-xs font-bold text-[#0b9340]">✓</span><span>An assessment of whether your business is a good pilot fit.</span></li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="overflow-hidden rounded-2xl border border-[#dce5df] bg-white shadow-[0_24px_70px_rgba(24,54,34,0.08)]">
+        <iframe
+          [src]="bookingEmbedUrl"
+          title="Book an OrderBridge demo and pilot consultation"
+          class="block min-h-[760px] w-full border-0 sm:min-h-[800px]"
+          loading="eager"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="camera; microphone; fullscreen"
+        ></iframe>
+        <div class="border-t border-[#e5eae6] bg-[#fbfcfa] px-5 py-4 text-center text-xs leading-5 text-[#6c8072]">
+          Having trouble with the calendar?
+          <a [href]="bookingUrl" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#07883a] underline underline-offset-2">Open the booking page on Cal.com</a>.
+        </div>
+      </div>
+    </div>
+
+    <p class="mx-auto mt-7 max-w-2xl text-center text-xs leading-6 text-[#748779]">Booking details are securely handled by Cal.com. You and the OrderBridge host will receive the meeting confirmation and calendar invitation by email.</p>
+  </div>
+</section>

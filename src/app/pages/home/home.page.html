@@ -1,0 +1,62 @@
+<section class="hero-surface overflow-hidden px-5 pb-24 pt-16 sm:px-8 sm:pt-20 lg:pb-28">
+  <div class="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
+    <div>
+      <a routerLink="/pilot" class="mb-8 inline-flex items-center gap-2 rounded-full border border-[#d7a838]/25 bg-[#fff8e8] px-3 py-1.5 text-xs font-semibold tracking-wide text-[#9a6b00]"><span class="size-1.5 animate-pulse rounded-full bg-[#d9a126]"></span> Ghana restaurant pilot now onboarding</a>
+      <h1 class="max-w-[720px] text-[49px] font-semibold leading-[1.04] tracking-[-0.035em] text-[#0c1a10] sm:text-[64px] lg:text-[72px]">An AI ordering and operations agent built for <span class="text-[#14a94d]">WhatsApp.</span></h1>
+      <p class="mt-7 max-w-[610px] text-lg leading-8 text-[#5a7061]">OrderBridge helps Ghanaian food businesses serve customers and handle everyday work through conversation—from menu enquiries and confirmed orders to reports, reminders and campaigns.</p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row"><a routerLink="/book-demo" class="rounded-xl bg-[#25d366] px-7 py-4 text-center font-semibold shadow-[0_14px_30px_rgba(37,211,102,0.2)] transition-all hover:-translate-y-0.5 hover:bg-[#20c65e]">Book a demo</a><a routerLink="/product" class="rounded-xl border border-[#d9e1db] bg-white px-7 py-4 text-center font-medium transition-all hover:border-[#aebcb2]">Explore the platform →</a></div>
+      <div class="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-xs font-medium text-[#698070]"><span>✓ No customer app</span><span>✓ Real restaurant data</span><span>✓ Role-controlled actions</span></div>
+    </div>
+    <div class="relative mx-auto w-full max-w-[610px] pb-8 sm:pb-10">
+      <div class="overflow-hidden rounded-[28px] border border-white bg-white p-2 shadow-[0_35px_90px_rgba(12,26,16,0.16)]">
+        <img [src]="images.restaurantOwnerHero" width="1672" height="941" fetchpriority="high" alt="Ghanaian restaurant owner checking customer orders on a phone" class="aspect-[16/10] w-full rounded-[22px] object-cover object-center">
+      </div>
+      <div class="absolute -bottom-2 left-3 flex items-center gap-3 rounded-2xl border border-[#dce5df] bg-white px-4 py-3 shadow-[0_18px_45px_rgba(12,26,16,0.16)] sm:left-7">
+        <span class="grid size-10 place-items-center rounded-full bg-[#25d366] text-xl text-[#0c1a10]"><i class="uil uil-whatsapp" aria-hidden="true"></i></span>
+        <div><p class="text-xs font-semibold">New order received</p><p class="mt-0.5 text-[11px] text-[#6a7e70]">Structured and ready to review</p></div>
+      </div>
+      <div class="absolute right-3 top-5 flex items-center gap-2 rounded-full bg-[#0c1a10]/90 px-3 py-2 text-[11px] font-medium text-white shadow-lg backdrop-blur sm:right-5"><span class="size-2 rounded-full bg-[#25d366]"></span> Restaurant agent online</div>
+    </div>
+  </div>
+</section>
+
+<section class="border-y border-[#e6ebe7] bg-white px-5 py-12 sm:px-8">
+  <div class="mx-auto grid max-w-7xl grid-cols-2 gap-9 lg:grid-cols-4">
+    <div class="text-center"><p class="text-3xl font-semibold text-[#13a64b]">0</p><p class="mt-1 text-sm font-medium">apps to download</p><p class="text-xs text-[#789080]">Just WhatsApp</p></div>
+    <div class="text-center"><p class="text-3xl font-semibold text-[#13a64b]">2</p><p class="mt-1 text-sm font-medium">agent experiences</p><p class="text-xs text-[#789080]">Customers and staff</p></div>
+    <div class="text-center"><p class="text-3xl font-semibold text-[#13a64b]">24/7</p><p class="mt-1 text-sm font-medium">conversation support</p><p class="text-xs text-[#789080]">Even after hours</p></div>
+    <div class="text-center"><p class="text-3xl font-semibold text-[#13a64b]">Ghana</p><p class="mt-1 text-sm font-medium">market first</p><p class="text-xs text-[#789080]">Built from local reality</p></div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="page-container">
+    <div class="mx-auto max-w-3xl text-center"><p class="eyebrow">One number, two experiences</p><h2 class="section-heading mt-4">Customers order. Your team operates. Everyone stays in WhatsApp.</h2></div>
+    <div class="mt-14 grid gap-5 lg:grid-cols-2">
+      <article class="rounded-2xl border border-[#e1e8e3] bg-white p-7 sm:p-9"><p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#13a64b]">For customers</p><h3 class="mt-3 text-2xl font-semibold tracking-[-0.025em]">Ordering feels like a conversation.</h3><div class="mt-8 space-y-5">@for (item of customerCapabilities; track item.title) { <div class="flex gap-4 border-t border-[#e7ebe8] pt-5"><span class="grid size-10 shrink-0 place-items-center rounded-xl bg-[#e8f8ed] text-xl text-[#0b9340]"><i [class]="item.icon" aria-hidden="true"></i></span><div><h4 class="font-medium">{{ item.title }}</h4><p class="mt-1 text-sm leading-6 text-[#687b6e]">{{ item.description }}</p></div></div> }</div></article>
+      <article class="rounded-2xl border border-[#1c2c21] bg-[#0c1a10] p-7 text-white sm:p-9"><p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#6ee69b]">For owners and managers</p><h3 class="mt-3 text-2xl font-semibold tracking-[-0.025em]">Everyday work happens through WhatsApp.</h3><div class="mt-8 space-y-5">@for (item of staffCapabilities; track item.title) { <div class="flex gap-4 border-t border-white/10 pt-5"><span class="grid size-10 shrink-0 place-items-center rounded-xl bg-[#25d366]/15 text-xl text-[#6ee69b]"><i [class]="item.icon" aria-hidden="true"></i></span><div><h4 class="font-medium">{{ item.title }}</h4><p class="mt-1 text-sm leading-6 text-[#b7c5bc]">{{ item.description }}</p></div></div> }</div></article>
+    </div>
+    <div class="mt-8 text-center"><a routerLink="/product" class="font-medium text-[#0b9340]">See every product capability →</a></div>
+  </div>
+</section>
+
+<section class="page-section bg-[#f1f6f2]">
+  <div class="page-container">
+    <div class="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]"><div><p class="eyebrow">How it works</p><h2 class="section-heading mt-4">AI chooses the action. Your data controls the result.</h2><p class="mt-5 leading-7 text-[#63776a]">OrderBridge is more than an automated reply system. It understands context, selects permitted tools and completes structured work through the restaurant’s backend.</p><a routerLink="/how-it-works" class="mt-7 inline-flex font-medium text-[#0b9340]">Understand the full process →</a></div><div class="grid gap-px overflow-hidden rounded-2xl bg-[#dfe6e1] sm:grid-cols-2">@for (step of processSteps; track step.title) { <article class="bg-white p-7"><span class="grid size-11 place-items-center rounded-xl bg-[#e8f8ed] text-xl text-[#0b9340]"><i [class]="step.icon" aria-hidden="true"></i></span><h3 class="mt-8 text-lg font-semibold">{{ step.title }}</h3><p class="mt-3 text-sm leading-6 text-[#687b6e]">{{ step.description }}</p></article> }</div></div>
+  </div>
+</section>
+
+<section class="page-section bg-white">
+  <div class="page-container grid items-center gap-14 lg:grid-cols-2">
+    <div><p class="eyebrow">Trust and control</p><h2 class="section-heading mt-4">Useful intelligence without careless actions.</h2><p class="mt-5 text-lg leading-8 text-[#617669]">Restaurant information remains authoritative, roles determine access, and important actions are confirmed before they affect customers or operations.</p><a routerLink="/trust" class="mt-7 inline-flex font-medium text-[#0b9340]">See how OrderBridge stays controlled →</a></div>
+    <div class="space-y-3">@for (item of trustPrinciples; track item.title) { <div class="rounded-xl border border-[#e2e8e4] bg-[#fbfcfa] p-5"><div class="flex gap-4"><span class="grid size-9 shrink-0 place-items-center rounded-lg bg-[#e8f8ed] text-xs font-semibold text-[#0b9340]">{{ item.icon }}</span><div><h3 class="font-medium">{{ item.title }}</h3><p class="mt-1 text-sm leading-6 text-[#6a7e70]">{{ item.description }}</p></div></div></div> }</div>
+  </div>
+</section>
+
+<section class="page-section bg-[#0c1a10] text-white">
+  <div class="page-container grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end"><div><p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#6ee69b]">Built in Ghana</p><h2 class="mt-4 max-w-4xl text-4xl font-semibold leading-[1.1] tracking-[-0.025em] sm:text-5xl">Designed around the way Ghanaian food businesses already sell.</h2><p class="mt-5 max-w-2xl leading-7 text-[#b7c5bc]">OrderBridge starts with restaurants and WhatsApp-first commerce in Ghana, learning from real businesses before expanding the idea more broadly.</p></div><a routerLink="/about" class="inline-flex rounded-xl border border-white/20 px-6 py-3 font-medium hover:border-white/50">Our story →</a></div>
+</section>
+
+<section class="page-section">
+  <div class="page-container"><div class="rounded-2xl border border-[#dce6df] bg-white p-8 shadow-[0_24px_70px_rgba(24,54,34,0.08)] sm:p-12"><div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center"><div><p class="eyebrow">14–21 day pilot</p><h2 class="mt-4 max-w-3xl text-3xl font-semibold leading-tight tracking-[-0.025em] sm:text-4xl">Help shape OrderBridge in a real Ghanaian food business.</h2><p class="mt-4 max-w-2xl leading-7 text-[#65796b]">We are onboarding selected restaurants, cafés, takeaways and food vendors to test the product with real customers and operations.</p></div><a routerLink="/pilot" class="rounded-xl bg-[#25d366] px-7 py-4 text-center font-semibold">Explore the pilot →</a></div></div></div>
+</section>

@@ -1,1 +1,259 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  color-scheme: light;
+  font-family: 'Poppins', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #fbfcfa;
+  color: #0c1a10;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(37, 211, 102, 0.35) #f4f7f4;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f7f4;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(37, 211, 102, 0.35);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 211, 102, 0.6);
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.3);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-container {
+  width: min(100% - 2.5rem, 80rem);
+  margin-inline: auto;
+}
+
+.page-section {
+  padding-block: 6rem;
+}
+
+.page-hero {
+  padding-block: 6rem;
+  background-color: #fbfcfa;
+  background-image:
+    radial-gradient(circle at 78% 35%, rgba(37, 211, 102, 0.1), transparent 29%),
+    linear-gradient(rgba(12, 26, 16, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 26, 16, 0.035) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+
+.page-title {
+  max-width: 60rem;
+  color: #0c1a10;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+
+.page-intro {
+  max-width: 47rem;
+  margin-top: 1.75rem;
+  color: #5f7466;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.section-heading {
+  max-width: 48rem;
+  color: #0c1a10;
+  font-size: clamp(2.25rem, 5vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.capability-card {
+  border: 1px solid #e0e7e2;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  padding: 1.5rem;
+}
+
+.capability-card h2,
+.capability-card h3 {
+  margin-top: 1.25rem;
+  color: #0c1a10;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.capability-card p {
+  margin-top: 0.5rem;
+  color: #667a6c;
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.capability-icon,
+.flow-number {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 0.6rem;
+  background: #eaf8ee;
+  color: #0b9340;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.hero-surface {
+  background-color: #fbfcfa;
+  background-image:
+    radial-gradient(circle at 76% 36%, rgba(37, 211, 102, 0.1), transparent 29%),
+    linear-gradient(rgba(12, 26, 16, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 26, 16, 0.035) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+
+.phone-glow {
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.18), transparent 68%);
+}
+
+.chat-pattern {
+  background-color: #0b141a;
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.012) 0, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 12px);
+}
+
+.chat-user {
+  border-radius: 12px 12px 2px 12px;
+  background: #005c4b;
+}
+
+.chat-assistant {
+  border-radius: 12px 12px 12px 2px;
+  background: #1f2c34;
+}
+
+.chat-scroll {
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.chat-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.eyebrow {
+  color: #b27c0d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.audience-active {
+  background: #25d366;
+  color: #0c1a10;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.18);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #1c2c21;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form-field {
+  width: 100%;
+  border: 1px solid #dce4de;
+  border-radius: 0.65rem;
+  background: #fbfcfa;
+  padding: 0.8rem 1rem;
+  color: #0c1a10;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.form-field::placeholder {
+  color: #95a399;
+}
+
+.form-field:focus {
+  border-color: rgba(37, 211, 102, 0.8);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    width: min(100% - 4rem, 80rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .page-section,
+  .page-hero {
+    padding-block: 4.5rem;
+  }
+}
