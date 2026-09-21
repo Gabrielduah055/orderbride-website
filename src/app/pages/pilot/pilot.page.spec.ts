@@ -1,3 +1,5 @@
+import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { PilotPage } from './pilot.page';
 
 describe('PilotPage', () => {
@@ -6,24 +8,19 @@ describe('PilotPage', () => {
   let event: SubmitEvent;
 
   beforeEach(() => {
-    page = new PilotPage();
+    TestBed.configureTestingModule({ imports: [PilotPage], providers: [provideRouter([])] });
+    page = TestBed.createComponent(PilotPage).componentInstance;
     form = document.createElement('form');
     form.innerHTML = '<input name="email" value="applicant@example.com">';
     spyOn(form, 'reportValidity').and.returnValue(true);
     spyOn(form, 'reset');
-
     event = new SubmitEvent('submit');
     Object.defineProperty(event, 'currentTarget', { value: form });
   });
 
   it('shows the success state when the email service accepts the application', async () => {
-    spyOn(window, 'fetch').and.resolveTo(new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    }));
-
+    spyOn(window, 'fetch').and.resolveTo(new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
     await page.submitApplication(event);
-
     expect(page.applicationSubmitted).toBeTrue();
     expect(page.submissionError).toBe('');
     expect(page.isSubmitting).toBeFalse();
@@ -32,9 +29,7 @@ describe('PilotPage', () => {
 
   it('keeps the form available and shows an error when delivery fails', async () => {
     spyOn(window, 'fetch').and.rejectWith(new Error('Network unavailable'));
-
     await page.submitApplication(event);
-
     expect(page.applicationSubmitted).toBeFalse();
     expect(page.submissionError).toContain('could not send');
     expect(page.isSubmitting).toBeFalse();

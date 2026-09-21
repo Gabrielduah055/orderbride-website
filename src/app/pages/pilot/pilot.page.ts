@@ -1,45 +1,47 @@
-import { Component } from '@angular/core';
-import { PILOT_TIMELINE, SITE_IMAGES } from '@core/constants/site-content.constants';
+import { Component, inject } from '@angular/core';
+import { SITE_CONFIG } from '@core/config/site.config';
+import { PILOT_TIMELINE } from '@core/constants/site-content.constants';
+import { UTM_KEYS, UtmService } from '@core/services/utm.service';
 
 @Component({ selector: 'app-pilot-page', templateUrl: './pilot.page.html' })
 export class PilotPage {
-  private readonly formEndpoint = 'https://formsubmit.co/ajax/gabrielagyemanduah@gmail.com';
-
+  readonly utm = inject(UtmService);
+  readonly utmKeys = UTM_KEYS;
   readonly timeline = PILOT_TIMELINE;
-  readonly images = SITE_IMAGES;
   applicationSubmitted = false;
   isSubmitting = false;
   submissionError = '';
 
+  utmValue(key: (typeof UTM_KEYS)[number]): string {
+    return this.utm.values()[key] ?? '';
+  }
+
   async submitApplication(event: SubmitEvent): Promise<void> {
     event.preventDefault();
-
     const form = event.currentTarget as HTMLFormElement | null;
-    if (!form || this.isSubmitting || !form.reportValidity()) {
+    if (!form || this.isSubmitting) return;
+
+    if (!form.reportValidity()) {
+      this.submissionError = 'Please complete the required fields before sending your interest.';
+      form.querySelector<HTMLElement>(':invalid')?.focus();
       return;
     }
 
     this.isSubmitting = true;
     this.submissionError = '';
-
     const formData = new FormData(form);
     formData.set('_subject', 'New OrderBridge pilot interest');
     formData.set('_template', 'table');
     formData.set('_replyto', String(formData.get('email') ?? ''));
+    for (const key of UTM_KEYS) {
+      const value = this.utm.values()[key];
+      if (value) formData.set(key, value);
+    }
 
     try {
-      const response = await fetch(this.formEndpoint, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData
-      });
+      const response = await fetch(SITE_CONFIG.pilotFormEndpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: formData });
       const result = await response.json() as { success?: boolean | string };
-      const submissionAccepted = result.success === true || result.success === 'true';
-
-      if (!response.ok || !submissionAccepted) {
-        throw new Error('Pilot application was not accepted by the email service.');
-      }
-
+      if (!response.ok || (result.success !== true && result.success !== 'true')) throw new Error('Submission rejected');
       form.reset();
       this.applicationSubmitted = true;
     } catch {

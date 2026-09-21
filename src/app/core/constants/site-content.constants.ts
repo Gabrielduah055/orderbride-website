@@ -1,115 +1,85 @@
-import { ChatMessage, ContentCard, FaqItem, NavigationItem, ProcessStep } from '@core/models/site.models';
+import { FaqItem, NavigationItem } from '@core/models/site.models';
 
 export const SITE_NAME = 'OrderBridge AI';
-export const SITE_TAGLINE = 'Restaurant operations, built for WhatsApp.';
-
-export const SITE_IMAGES = {
-  restaurantOwnerHero: '/images/ghanaian-restaurant-owner-hero.png',
-  customerOrdering: '/images/customer-ordering-by-chat.png',
-  restaurantTeam: '/images/restaurant-team-live-service.png',
-  productHero: '/images/product-hero-v2.png',
-  solutionsHero: '/images/solutions-hero.png',
-  pilotHero: '/images/pilot-hero.png'
-} as const;
+export const SITE_TAGLINE = 'Conversations into confirmed orders.';
 
 export const PRIMARY_NAVIGATION: NavigationItem[] = [
-  { label: 'Home', route: '/' },
   { label: 'Product', route: '/product' },
   { label: 'How it works', route: '/how-it-works' },
-  { label: 'Solutions', route: '/solutions' },
-  { label: 'About', route: '/about' },
+  { label: 'For restaurants', route: '/for-restaurants' },
+  { label: 'Trust', route: '/trust' },
   { label: 'Pilot', route: '/pilot' }
 ];
 
 export const FOOTER_NAVIGATION: NavigationItem[] = [
   ...PRIMARY_NAVIGATION,
-  { label: 'Trust & control', route: '/trust' },
-  { label: 'FAQ', route: '/faq' }
+  { label: 'Book a demo', route: '/book-demo' },
+  { label: 'About', route: '/about' },
+  { label: 'FAQ', route: '/faq' },
+  { label: 'Privacy', route: '/privacy' },
+  { label: 'Terms', route: '/terms' }
 ];
 
-export const CHAT_MESSAGES: ChatMessage[] = [
-  { from: 'customer', text: 'Hi! What’s on the menu today? 🍽️', time: '12:01 PM' },
-  { from: 'assistant', text: 'Welcome to Accra Kitchen.\n\n🍛 Jollof Rice — GH₵35\n🥩 Grilled Tilapia — GH₵55\n🫘 Red Red & Plantain — GH₵28', time: '12:01 PM' },
-  { from: 'customer', text: 'One Jollof Rice. Delivery to East Legon.', time: '12:02 PM' },
-  { from: 'assistant', text: 'Jollof Rice × 1 — GH₵35\nDelivery — GH₵15\nTotal — GH₵50\n\nReply YES to confirm.', time: '12:02 PM' },
-  { from: 'customer', text: 'YES', time: '12:03 PM' },
-  { from: 'assistant', text: 'Order #OB-2847 submitted. Accra Kitchen will confirm it shortly.', time: '12:03 PM' },
-  { from: 'assistant', text: 'Good news — Accra Kitchen accepted your order. Preparation has started.', time: '12:05 PM' },
-  { from: 'assistant', text: 'Your order is ready for delivery. A receipt will follow here.', time: '12:28 PM' }
-];
+export const PROBLEMS = [
+  ['Details get buried', 'Items, quantities and delivery details disappear inside long message threads.'],
+  ['Orders arrive incomplete', 'Missing quantities, addresses or fulfilment choices slow down the next step.'],
+  ['Busy periods create delays', 'Customers wait while staff answer the same menu and availability questions.'],
+  ['Manual copying adds risk', 'Teams move details from chat into another system by hand.'],
+  ['Customers lose certainty', 'Without clear confirmation and status updates, nobody knows what happens next.']
+] as const;
 
-export const CUSTOMER_CAPABILITIES: ContentCard[] = [
-  { icon: 'uil uil-restaurant', title: 'Discover the menu', description: 'Ask about available meals, prices, ingredients and food images in ordinary language.' },
-  { icon: 'uil uil-comment-alt-verify', title: 'Get grounded recommendations', description: 'Receive suggestions based on the restaurant’s real menu, preferences and current availability.' },
-  { icon: 'uil uil-shopping-cart-alt', title: 'Build and change orders', description: 'Add items, change quantities and correct details before submitting the final order.' },
-  { icon: 'uil uil-truck', title: 'Choose pickup or delivery', description: 'Select fulfilment and provide the location information required by the restaurant.' },
-  { icon: 'uil uil-bell', title: 'Receive live updates', description: 'Stay informed as the restaurant accepts, prepares and completes the order.' },
-  { icon: 'uil uil-receipt', title: 'Get a clear receipt', description: 'Receive a structured order summary and receipt through the same conversation.' }
-];
+export const CUSTOMER_EXPERIENCE = [
+  'Discover menus using restaurant data',
+  'Ask questions and receive recommendations',
+  'Create and amend an order before staff action',
+  'Choose pickup or delivery',
+  'Receive order status updates',
+  'Get receipts and share feedback'
+] as const;
 
-export const STAFF_CAPABILITIES: ContentCard[] = [
-  { icon: 'uil uil-check', title: 'Review and confirm orders', description: 'Authorised owners and managers can accept, reject and update order status directly through WhatsApp.' },
-  { icon: 'uil uil-file-graph', title: 'Keep restaurant details current', description: 'Update menu prices, availability and food information through controlled, confirmed actions.' },
-  { icon: 'uil uil-calendar', title: 'Plan reminders and campaigns', description: 'Schedule operational reminders and prepare approved customer messages without another interface.' },
-  { icon: 'uil uil-statistics', title: 'Ask for business performance', description: 'Request daily or weekly summaries covering orders, revenue, top items and customer activity.' },
-  { icon: 'uil uil-comment-alt-heart', title: 'Follow up with customers', description: 'Collect feedback, respond to issues and re-engage eligible customers with relevant messages.' }
-];
+export const RESTAURANT_EXPERIENCE = [
+  'Review, accept or reject submitted orders',
+  'Manage menu availability and restaurant details',
+  'Update preparation and fulfilment status',
+  'Receive daily and weekly summaries on supported plans',
+  'Resolve cancellation requests after acceptance',
+  'Follow up with customers after eligible orders',
+  'Prepare consent-aware campaigns on supported plans'
+] as const;
 
-export const HOW_IT_WORKS_STEPS: ProcessStep[] = [
-  { icon: 'uil uil-comment-alt-notes', title: 'A conversation begins', description: 'A customer, owner or authorised manager messages the restaurant’s WhatsApp number.' },
-  { icon: 'uil uil-info', title: 'OrderBridge understands the context', description: 'The agent identifies who is speaking, what they need and which actions they are permitted to use.' },
-  { icon: 'uil uil-check-square', title: 'The right action is completed', description: 'OrderBridge reads or updates structured restaurant data instead of relying on generated guesses.' },
-  { icon: 'uil uil-comment-check', title: 'The outcome is confirmed', description: 'Important details are checked and everyone receives a clear WhatsApp update based on the saved result.' }
-];
-
-export const BUSINESS_SOLUTIONS = [
-  { icon: 'uil uil-restaurant', imageUrl: '/images/solution-restaurant.png', title: 'Restaurants', description: 'Handle menu enquiries, ordering, fulfilment, receipts, reporting and customer follow-up through WhatsApp.' },
-  { icon: 'uil uil-shopping-bag', imageUrl: '/images/solution-takeaway.png', title: 'Takeaways', description: 'Capture fast, accurate pickup and delivery orders without sending customers through another app.' },
-  { icon: 'uil uil-coffee', imageUrl: '/images/solution-cafe.png', title: 'Cafés', description: 'Answer product questions, communicate availability and keep simple orders organised during busy hours.' },
-  { icon: 'uil uil-store', imageUrl: '/images/solution-food-vendor.png', title: 'Food vendors & chop bars', description: 'Make daily menus easier to discover while keeping the ordering experience familiar and accessible.' },
-  { icon: 'uil uil-heart', imageUrl: '/images/solution-salad.png', title: 'Salad & healthy food brands', description: 'Turn ingredient questions, custom combinations and delivery requests into clear, confirmed orders.' },
-  { icon: 'uil uil-utensils', imageUrl: '/images/solution-caterer.png', title: 'Caterers', description: 'Handle enquiries and prepare customer requests with clearer details, confirmation and follow-up.' }
-];
-
-export const BUSINESS_CONFIGURATION: ContentCard[] = [
-  { icon: 'uil uil-clock', title: 'Opening hours', description: 'When customers can order and receive support.' },
-  { icon: 'uil uil-home', title: 'Pickup details', description: 'Clear collection address and instructions.' },
-  { icon: 'uil uil-pizza-slice', title: 'Menu and availability', description: 'Real items, prices and daily stock.' },
-  { icon: 'uil uil-user', title: 'Authorised team', description: 'The owners and managers allowed to act.' },
-  { icon: 'uil uil-location-pin-alt', title: 'Delivery areas', description: 'Zones and locations the business serves.' },
-  { icon: 'uil uil-bill', title: 'Order rules and fees', description: 'Minimums, delivery prices and fulfilment rules.' },
-  { icon: 'uil uil-microphone', title: 'Assistant voice', description: 'A tone that still feels like the restaurant.' }
-];
-
-export const ABOUT_PRINCIPLES: ContentCard[] = [
-  { icon: 'uil uil-compass', title: 'Start with reality', description: 'Build around how Ghanaian businesses and customers already behave.' },
-  { icon: 'uil uil-shield-check', title: 'Earn trust through control', description: 'Important actions need permissions, real data and confirmation.' },
-  { icon: 'uil uil-bolt-alt', title: 'Make advanced technology feel simple', description: 'The product should feel like a helpful conversation, not technical software.' },
-  { icon: 'uil uil-users-alt', title: 'Learn beside the business', description: 'Real operating feedback should shape the product before assumptions do.' }
-];
-
-export const TRUST_PRINCIPLES: ContentCard[] = [
-  { icon: '01', title: 'Restaurant data is the source of truth', description: 'Prices, availability, orders and operational records come from saved restaurant data—not AI invention.' },
-  { icon: '02', title: 'Actions follow permissions', description: 'Customers, managers and owners only receive tools appropriate to their role.' },
-  { icon: '03', title: 'Important steps are confirmed', description: 'Customer submission and restaurant acceptance are separate, deliberate actions.' },
-  { icon: '04', title: 'Customer outreach respects consent', description: 'Campaigns account for marketing preference, consent and opt-out status.' },
-  { icon: '05', title: 'Humans remain in control', description: 'Owners and managers can intervene, reject, correct and resolve situations whenever necessary.' },
-  { icon: '06', title: 'Side effects are structured', description: 'Notifications, receipts and status changes follow backend results rather than unverified AI wording.' }
-];
+export const TRUST_PRINCIPLES = [
+  ['Restaurant data is authoritative', 'Menu items, prices, availability and delivery rules come from saved restaurant records.'],
+  ['Permissions match the user', 'Customers, managers and owners receive different tools based on trusted identity and role checks.'],
+  ['Submission is not acceptance', 'A customer can submit an order, but authorised restaurant staff still decide whether to accept it.'],
+  ['Sensitive actions are confirmed', 'Changes with operational impact require clear intent and, where needed, a confirmation step.'],
+  ['Backend results control side effects', 'Receipts, messages and order changes follow structured system results, not generated wording.'],
+  ['People stay in control', 'Restaurant staff can reject, correct and resolve orders when circumstances change.']
+] as const;
 
 export const PILOT_TIMELINE = [
-  { period: 'Days 1–3', title: 'Setup and onboarding', description: 'We configure your restaurant information, menu, WhatsApp workflow and authorised contacts.' },
-  { period: 'Days 4–18', title: 'Live restaurant use', description: 'Customers and staff use OrderBridge in real operating conditions with close support from us.' },
-  { period: 'Days 19–21', title: 'Review and refinement', description: 'We review feedback, identify gaps and agree on the most important improvements.' }
-];
+  ['Days 1-3', 'Restaurant and menu setup', 'We configure restaurant information, the menu, delivery rules and authorised contacts.'],
+  ['Days 4-18', 'Live workflow support', 'Customers and staff use the WhatsApp workflow in real operating conditions with close support.'],
+  ['Days 19-21', 'Review and refinement', 'We review feedback, identify gaps and agree on the highest-value improvements.']
+] as const;
+
+export const BUSINESS_TYPES = [
+  ['Restaurants', 'Keep menu enquiries, orders and fulfilment decisions connected.'],
+  ['Takeaways', 'Capture pickup and delivery requests without a separate customer app.'],
+  ['Cafés', 'Answer availability questions and organise simple orders during busy periods.'],
+  ['Food vendors and chop bars', 'Share current menus and turn familiar chats into clearer orders.'],
+  ['Healthy food brands', 'Handle ingredient questions, combinations and delivery details.'],
+  ['Caterers', 'Collect clearer enquiry details and coordinate follow-up for larger requests.']
+] as const;
 
 export const FAQ_ITEMS: FaqItem[] = [
-  { question: 'Do customers need to download an app?', answer: 'No. Customers interact with the restaurant through WhatsApp, using the messaging experience they already know.' },
-  { question: 'Is OrderBridge a restaurant dashboard?', answer: 'No. OrderBridge is an agentic WhatsApp application. Customers, owners and managers perform supported actions through conversation.' },
-  { question: 'Can the AI invent menu items or prices?', answer: 'It is designed to use the restaurant’s stored menu, prices and availability as the source of truth.' },
-  { question: 'Who can change prices or accept orders?', answer: 'Actions are role-controlled. Customers cannot access restaurant management tools, and some sensitive actions are limited to owners.' },
-  { question: 'Does OrderBridge support pickup and delivery?', answer: 'Yes. Restaurants can configure pickup and delivery, including flat, zone-based or manually confirmed delivery fees.' },
-  { question: 'Can restaurants send promotions?', answer: 'Supported restaurants can prepare promotions, announcements and re-engagement campaigns for customers who are eligible to receive them.' },
-  { question: 'What happens when a customer submits an order?', answer: 'The order waits for restaurant confirmation. An authorised owner or manager can accept or reject it before the final receipt is issued.' },
-  { question: 'Is OrderBridge currently available?', answer: 'OrderBridge is entering a 14–21 day Ghanaian restaurant pilot with selected food businesses.' }
+  { question: 'Do customers need to install an app?', answer: 'No. Customers use the restaurant\'s WhatsApp conversation. OrderBridge adds structure behind that familiar experience.' },
+  { question: 'How do menus and prices stay accurate?', answer: 'The backend reads saved restaurant menu items, prices and availability. It recalculates trusted prices and fees instead of treating AI-written amounts as authoritative.' },
+  { question: 'Is customer confirmation the same as restaurant acceptance?', answer: 'No. Customer confirmation submits an order for review. An authorised owner or manager must still accept or reject it before the receipt is issued.' },
+  { question: 'Does OrderBridge support pickup and delivery?', answer: 'Yes. A restaurant can configure pickup and delivery, including flat fees, zone-based fees or manual delivery-fee confirmation.' },
+  { question: 'Can a customer change or cancel an order?', answer: 'A customer can amend or cancel while the order is waiting for restaurant action. After acceptance, cancellation becomes a request for authorised staff to resolve.' },
+  { question: 'What can restaurant staff do?', answer: 'Permissions depend on role. Owners and managers can handle supported order operations, while selected sensitive actions remain restricted.' },
+  { question: 'When does a customer receive a receipt?', answer: 'The system generates a PDF receipt from saved order and restaurant records after the restaurant accepts the order.' },
+  { question: 'How are promotions handled?', answer: 'Campaign features are plan-dependent and use customer marketing preferences, consent and opt-out state to determine eligible recipients.' },
+  { question: 'What is included in the pilot?', answer: 'The 14-21 day pilot covers restaurant and menu setup, WhatsApp workflow configuration, staff onboarding, live support, review and refinement.' },
+  { question: 'Which food businesses can use OrderBridge?', answer: 'The product is designed for restaurants, takeaways, cafés, food vendors, chop bars, healthy food brands and caterers.' }
 ];

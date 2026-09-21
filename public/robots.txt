@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orderbride-website.vercel.app/sitemap.xml
