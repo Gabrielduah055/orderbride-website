@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CUSTOMER_CAPABILITIES, HOW_IT_WORKS_STEPS, SITE_IMAGES, STAFF_CAPABILITIES, TRUST_PRINCIPLES } from '@core/constants/site-content.constants';
+import { CUSTOMER_EXPERIENCE, FAQ_ITEMS, RESTAURANT_EXPERIENCE, TRUST_PRINCIPLES } from '@core/constants/site-content.constants';
+import { UtmService } from '@core/services/utm.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,9 +9,21 @@ import { CUSTOMER_CAPABILITIES, HOW_IT_WORKS_STEPS, SITE_IMAGES, STAFF_CAPABILIT
   templateUrl: './home.page.html'
 })
 export class HomePage {
-  readonly images = SITE_IMAGES;
-  readonly customerCapabilities = CUSTOMER_CAPABILITIES.slice(0, 3);
-  readonly staffCapabilities = STAFF_CAPABILITIES.slice(0, 3);
-  readonly processSteps = HOW_IT_WORKS_STEPS.slice(0, 4);
-  readonly trustPrinciples = TRUST_PRINCIPLES.slice(0, 3);
+  readonly utm = inject(UtmService);
+  openFaqIndex: number | null = null;
+  readonly customerHighlights = CUSTOMER_EXPERIENCE.slice(0, 5);
+  readonly restaurantHighlights = RESTAURANT_EXPERIENCE.slice(0, 5);
+  readonly trustHighlights = TRUST_PRINCIPLES.slice(0, 4);
+  readonly faqHighlights = FAQ_ITEMS.slice(0, 3);
+  readonly lifecycle = [
+    { title: 'Discover', description: 'Customers ask questions and explore the menu in WhatsApp.', icon: 'uil uil-search' },
+    { title: 'Order', description: 'Items and fulfilment details are captured clearly.', icon: 'uil uil-shopping-bag' },
+    { title: 'Confirm', description: 'The restaurant reviews and accepts the request.', icon: 'uil uil-check-circle' },
+    { title: 'Fulfil', description: 'Customers receive useful preparation and delivery updates.', icon: 'uil uil-truck' },
+    { title: 'Follow up', description: 'The conversation can continue after the order.', icon: 'uil uil-heart' }
+  ] as const;
+
+  toggleFaq(index: number): void {
+    this.openFaqIndex = this.openFaqIndex === index ? null : index;
+  }
 }

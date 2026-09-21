@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SITE_CONFIG } from '@core/config/site.config';
+import { UtmService } from '@core/services/utm.service';
 
-@Component({
-  selector: 'app-book-demo-page',
-  templateUrl: './book-demo.page.html'
-})
+@Component({ selector: 'app-book-demo-page', templateUrl: './book-demo.page.html' })
 export class BookDemoPage {
-  readonly bookingUrl = 'https://cal.com/gabriel-agyeman-duah-q3cizx/orderbridge-demo-pilot-consultation';
-  readonly bookingEmbedUrl: SafeResourceUrl;
+  private readonly sanitizer = inject(DomSanitizer);
+  private readonly utm = inject(UtmService);
+  readonly bookingUrl = this.utm.appendToUrl(SITE_CONFIG.bookingUrl);
+  readonly bookingEmbedUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`${this.bookingUrl}${this.bookingUrl.includes('?') ? '&' : '?'}embed=true&theme=auto`);
+  calendarLoading = true;
 
-  constructor(sanitizer: DomSanitizer) {
-    this.bookingEmbedUrl = sanitizer.bypassSecurityTrustResourceUrl(`${this.bookingUrl}?embed=true&theme=light`);
+  calendarLoaded(): void {
+    this.calendarLoading = false;
   }
 }

@@ -1,7 +1,31 @@
-<section class="page-hero overflow-hidden"><div class="page-container grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]"><div><p class="eyebrow">Solutions</p><h1 class="page-title mt-4">Made for food businesses <span class="text-[#14a94d]">that sell through conversation.</span></h1><p class="page-intro">OrderBridge adapts to the business’s real menu, fulfilment model, operating hours and authorised team.</p></div><div class="overflow-hidden rounded-[26px] bg-white p-2 shadow-[0_28px_70px_rgba(12,26,16,0.15)]"><img [src]="images.solutionsHero" width="1672" height="941" fetchpriority="high" alt="Ghanaian food businesses serving customers across a modern food courtyard" class="aspect-[4/3] w-full rounded-[20px] object-cover"></div></div></section>
+<section class="page-hero restaurants-hero">
+  <div class="page-container page-hero-grid">
+    <div><p class="eyebrow">For restaurants</p><h1>Add structure to the way customers already order.</h1><p>Keep the convenience of WhatsApp while giving every menu question, order and fulfilment decision a clearer path.</p><a routerLink="/pilot" class="button button-primary">Explore the pilot</a></div>
+    <figure class="restaurant-hero-image"><picture><source media="(max-width: 640px)" srcset="/assets/photography/shawarma-meal-480.webp"><img src="/assets/photography/shawarma-meal-940.webp" width="940" height="1670" fetchpriority="high" alt="A shawarma meal prepared for takeaway"></picture></figure>
+  </div>
+</section>
 
-<section class="page-section bg-white"><div class="page-container"><div class="mb-12 max-w-2xl"><p class="eyebrow">Built for the way you serve</p><h2 class="section-heading mt-4">Different food businesses. One familiar conversation.</h2></div><div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">@for (solution of solutions; track solution.title) { <article class="group overflow-hidden rounded-2xl border border-[#e0e7e2] bg-white transition-all hover:-translate-y-1 hover:border-[#25d366]/45 hover:shadow-[0_20px_50px_rgba(26,54,34,0.1)]"><div class="relative overflow-hidden"><img [src]="solution.imageUrl" width="900" height="600" loading="lazy" [alt]="solution.title" class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"><span class="absolute bottom-4 left-4 grid size-11 place-items-center rounded-xl bg-white text-xl text-[#0b9340] shadow-lg"><i [class]="solution.icon" aria-hidden="true"></i></span></div><div class="p-6"><h2 class="text-xl font-semibold tracking-[-0.02em]">{{ solution.title }}</h2><p class="mt-3 text-sm leading-7 text-[#667a6c]">{{ solution.description }}</p></div></article> }</div></div></section>
+<section class="page-section business-types-section">
+  <div class="page-container">
+    <div class="section-copy"><h2>Designed for food businesses with active conversations.</h2><p>OrderBridge is most useful where customers already ask questions, place orders and expect updates through chat.</p></div>
+    <div class="business-type-grid">
+      @for (business of businessTypes; track business[0]; let index = $index) {
+        <article><span>{{ index + 1 }}</span><h3>{{ business[0] }}</h3><p>{{ business[1] }}</p></article>
+      }
+    </div>
+  </div>
+</section>
 
-<section class="page-section bg-[#0c1a10] text-white"><div class="page-container"><div class="grid gap-12 lg:grid-cols-[0.78fr_1.22fr]"><div><p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#6ee69b]">Configured for the business</p><h2 class="section-heading mt-4 text-white">The agent reflects how your restaurant actually operates.</h2><p class="mt-5 max-w-lg leading-7 text-[#aebeb3]">OrderBridge responds from the information and rules your business has approved.</p></div><div class="grid gap-4 sm:grid-cols-2">@for (item of configuration; track item.title) { <article class="rounded-2xl border border-white/10 bg-white/[0.045] p-5 sm:last:col-span-2"><span class="grid size-10 place-items-center rounded-xl bg-[#25d366]/15 text-xl text-[#6ee69b]"><i [class]="item.icon" aria-hidden="true"></i></span><h3 class="mt-4 font-medium text-white">{{ item.title }}</h3><p class="mt-1 text-sm leading-6 text-[#aebeb3]">{{ item.description }}</p></article> }</div></div></div></section>
+<section class="restaurant-ops-section">
+  <div class="page-container restaurant-ops-grid">
+    <figure><picture><source media="(max-width: 640px)" srcset="/assets/photography/chopbox-storefront-480.webp"><img src="/assets/photography/chopbox-storefront-736.webp" width="736" height="1308" loading="lazy" alt="The Chopbox storefront in Ghana"></picture></figure>
+    <div><h2>Configuration starts with the real restaurant.</h2><p>Opening hours, pickup information, menu availability, authorised staff, delivery areas and fee rules shape every answer and action.</p><dl><div><dt>Menu and availability</dt><dd>Saved items, current prices and daily availability.</dd></div><div><dt>Fulfilment rules</dt><dd>Pickup, flat delivery, zone-based delivery or manual fee confirmation.</dd></div><div><dt>Authorised team</dt><dd>Trusted owner and manager contacts with distinct permissions.</dd></div><div><dt>Restaurant voice</dt><dd>A configured tone that still feels like the business.</dd></div></dl></div>
+  </div>
+</section>
 
-<section class="page-section"><div class="page-container"><div class="rounded-2xl border border-[#dce5df] bg-white p-8 text-center sm:p-12"><p class="eyebrow">A fit for your operation</p><h2 class="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.025em]">See how an OrderBridge conversation would work with your menu and customers.</h2><a routerLink="/book-demo" class="mt-8 inline-flex rounded-xl bg-[#25d366] px-7 py-4 font-semibold">Book a demo</a></div></div></section>
+<section class="page-section rider-section">
+  <div class="page-container rider-grid">
+    <div><h2>Delivery details stay connected to the order.</h2><p>OrderBridge records the customer's delivery choice, resolves the appropriate fee and keeps the restaurant in control of acceptance and fulfilment.</p><a routerLink="/how-it-works" class="text-link">See the complete order flow <span aria-hidden="true">→</span></a></div>
+    <figure><picture><source media="(max-width: 640px)" srcset="/assets/photography/orderbridge-rider-480.webp"><source media="(max-width: 1024px)" srcset="/assets/photography/orderbridge-rider-760.webp"><img src="/assets/photography/orderbridge-rider-1120.webp" width="1120" height="1402" loading="lazy" alt="An OrderBridge delivery rider on a motorbike"></picture></figure>
+  </div>
+</section>

@@ -1,16 +1,18 @@
-<footer class="border-t border-[#e2e8e4] bg-white">
-  <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-    <div class="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
-      <div>
-        <a routerLink="/" class="inline-flex items-center gap-2.5"><span class="grid size-9 place-items-center rounded-[10px] bg-[#25d366] text-xs font-bold">OB</span><span class="font-semibold">{{ siteName }}</span></a>
-        <p class="mt-4 max-w-sm text-sm leading-7 text-[#667a6c]">{{ tagline }} Built in Ghana for food businesses that already sell through conversation.</p>
-      </div>
-      <div class="grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-3">
-        @for (item of navigation; track item.route) {
-          <a [routerLink]="item.route" class="text-sm font-medium text-[#52675a] transition-colors hover:text-[#0c1a10]">{{ item.label }}</a>
-        }
-      </div>
+<footer class="site-footer">
+  <div class="page-container footer-grid">
+    <div class="footer-brand">
+      <a routerLink="/" aria-label="OrderBridge AI home"><app-brand-logo [reversed]="true" /></a>
+      <p>{{ tagline }}</p>
+      <p class="footer-note">Built in Ghana for food businesses that already sell through conversation.</p>
     </div>
-    <div class="mt-12 flex flex-col gap-3 border-t border-[#e7ebe8] pt-6 text-xs text-[#849288] sm:flex-row sm:items-center sm:justify-between"><p>© {{ currentYear }} {{ siteName }}. All rights reserved.</p><p>Ghana-first conversational commerce.</p></div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      @for (item of navigation; track item.route) {
+        <a [routerLink]="item.route">{{ item.label }}</a>
+      }
+    </nav>
+  </div>
+  <div class="page-container footer-bottom">
+    <p>© {{ currentYear }} {{ siteName }}. All rights reserved.</p>
+    <p>Conversations into confirmed orders.</p>
   </div>
 </footer>
