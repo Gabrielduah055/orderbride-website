@@ -190,6 +190,49 @@ p { color: var(--muted); line-height: 1.75; }
 .pilot-steps li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
 .pilot-steps span { color: var(--green-strong); font-size: .76rem; font-weight: 700; }
 .pilot-steps p { margin: 0; font-size: .86rem; }
+
+/* Pilot page rebuild — new styles */
+.pilot-hero-refresh {
+  padding-block: clamp(2rem, 3.5vw, 3rem) clamp(3.5rem, 6vw, 6rem);
+  background:
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--green) 10%, transparent), transparent 32%),
+    var(--surface);
+}
+.pilot-hero-refresh figure { margin: 0; height: 32rem; overflow: hidden; border-radius: 1rem; }
+.pilot-hero-refresh figure img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.pilot-hero-refresh h1 { font-size: clamp(2.6rem, 4vw, 3.5rem); margin-bottom: 1.2rem; }
+.pilot-hero-intro { max-width: 34rem; margin-bottom: 1.75rem; font-size: .97rem; line-height: 1.72; }
+.pilot-hero-tag { margin: 1rem 0 0; font-size: .76rem; color: var(--muted); }
+
+.pilot-eligibility-section { background: var(--surface-tinted); }
+.pilot-eligibility-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 7vw, 7rem); align-items: center; }
+.pilot-eligibility-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.15rem; }
+.pilot-eligibility-list li { display: flex; align-items: flex-start; gap: .8rem; color: var(--text); font-size: .95rem; font-weight: 500; line-height: 1.5; }
+.pilot-eligibility-list i { color: var(--green); font-size: 1.3rem; flex-shrink: 0; margin-top: .08rem; }
+
+.pilot-responsibilities-section { background: var(--surface-elevated); }
+.pilot-responsibilities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.pilot-responsibilities-card { border: 1px solid var(--border); border-radius: 1rem; padding: clamp(1.75rem, 4vw, 2.5rem); background: var(--surface); }
+.pilot-responsibilities-card--dark { background: var(--navy); border-color: var(--navy); }
+.pilot-responsibilities-card--dark .panel-kicker { color: #66dfa7; }
+.pilot-responsibilities-card--dark > p { color: #d5e4e9; }
+.pilot-responsibilities-card ul { margin: 1.5rem 0 0; padding: 0; list-style: none; display: grid; gap: .8rem; }
+.pilot-responsibilities-card li { position: relative; padding-left: 1.5rem; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+.pilot-responsibilities-card--dark li { color: #d5e4e9; }
+.pilot-responsibilities-card li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.pilot-responsibilities-card--dark li::before { color: #66dfa7; }
+
+.pilot-next-steps { margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: pilot-steps; display: grid; gap: 1.4rem; }
+.pilot-next-steps li { counter-increment: pilot-steps; display: grid; grid-template-columns: 2.2rem 1fr; gap: .9rem; align-items: start; }
+.pilot-next-steps li::before { content: counter(pilot-steps); display: grid; width: 2.2rem; height: 2.2rem; place-items: center; border-radius: 50%; background: var(--green); color: var(--navy); font-size: .78rem; font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
+.pilot-next-steps strong { display: block; color: var(--text); font-size: .92rem; font-weight: 600; margin-bottom: .3rem; }
+.pilot-next-steps p { margin: 0; font-size: .86rem; }
+
+.pilot-notice { padding-block: 1.85rem; border-top: 1px solid var(--border); background: var(--surface); }
+.pilot-notice p { max-width: 62rem; margin: 0; font-size: .8rem; line-height: 1.85; color: var(--muted); }
+.pilot-notice strong { color: var(--text); }
+
+
 .final-cta { padding-block: clamp(4rem, 7vw, 6.5rem); background: var(--navy); color: var(--soft-white); }
 .final-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .final-cta h2 { max-width: 48rem; margin: 0; color: var(--soft-white); }
@@ -271,6 +314,74 @@ p { color: var(--muted); line-height: 1.75; }
 .consent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 .trust-statement { border-left: 3px solid var(--green); padding-left: 2rem; }
 .trust-statement p { margin: 0; color: var(--text); font-size: 1.35rem; font-weight: 600; line-height: 1.55; }
+
+/* Trust page — new styles */
+.trust-hero-refresh {
+  padding-block: clamp(2rem, 3.5vw, 3rem) clamp(3rem, 5vw, 5rem);
+  background:
+    radial-gradient(circle at 78% 38%, color-mix(in srgb, var(--green) 10%, transparent), transparent 34%),
+    var(--surface-elevated);
+  overflow: hidden;
+}
+.trust-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+.trust-hero-copy { position: relative; z-index: 2; align-self: start; padding-top: clamp(1.5rem, 3vw, 2.5rem); }
+.trust-hero-copy h1 {
+  max-width: 11em;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.8rem, 4vw, 3.65rem);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -.055em;
+}
+.trust-hero-intro { max-width: 34rem; margin-bottom: 1.75rem; font-size: .97rem; line-height: 1.72; }
+
+/* Fixed-height scene: both images are clipped to fit, not free-flowing */
+.trust-hero-scene { position: relative; height: 26rem; }
+.trust-hero-chat {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 55%;
+  height: 100%;
+  margin: 0;
+  transform: rotate(-1.2deg);
+  filter: drop-shadow(0 18px 32px rgba(8, 47, 79, .18));
+  z-index: 1;
+  overflow: hidden;
+  border-radius: .4rem;
+}
+.trust-hero-receipt {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48%;
+  height: 100%;
+  margin: 0;
+  border-radius: 1rem;
+  box-shadow: 0 22px 50px rgba(8, 47, 79, .22);
+  overflow: hidden;
+  z-index: 2;
+}
+.trust-hero-chat img,
+.trust-hero-receipt img { width: 100%; height: auto; display: block; }
+
+/* Trust FAQ — tighter row heights and answer padding */
+.faq-section .faq-question { min-height: 3.6rem; }
+.faq-section .faq-preview-item .faq-answer p { padding-bottom: .75rem; }
+
+.trust-features-section { background: var(--surface-elevated); }
+.trust-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 1rem; overflow: hidden; }
+.trust-feature { background: var(--surface); padding: clamp(1.75rem, 4vw, 2.75rem); display: flex; flex-direction: column; }
+.trust-feature h2 { font-size: clamp(1.4rem, 2.4vw, 1.95rem); margin-bottom: .75rem; }
+.trust-feature > p { font-size: .9rem; line-height: 1.75; flex: 1; }
+.trust-feature ul { margin: 1.25rem 0 0; padding: 0; list-style: none; display: grid; gap: .65rem; }
+.trust-feature li { position: relative; padding-left: 1.6rem; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+.trust-feature li i { position: absolute; left: 0; top: .07rem; color: var(--green); font-size: 1rem; font-weight: 700; }
 
 .mission-section { background: var(--surface-elevated); }
 .mission-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 1rem; }
@@ -437,6 +548,15 @@ p { color: var(--muted); line-height: 1.75; }
   .home-hero { min-height: auto; padding-block: 3.2rem 4rem; }
   .hero-grid, .page-hero-grid, .problem-grid, .control-grid, .ghana-grid, .pilot-grid, .workflow-grid, .decision-grid, .restaurant-ops-grid, .rider-grid, .role-grid, .consent-grid, .origin-grid, .pilot-process-grid, .pilot-form-grid, .demo-layout, .faq-layout { grid-template-columns: 1fr; }
   .hero-copy { max-width: 40rem; }
+  .trust-features-grid { grid-template-columns: 1fr; border-radius: 0; border-inline: 0; }
+  .trust-hero-grid { grid-template-columns: 1fr; }
+  .pilot-hero-refresh .page-hero-grid { grid-template-columns: 1fr; }
+  .pilot-hero-refresh figure { height: 22rem; }
+  .pilot-eligibility-grid { grid-template-columns: 1fr; }
+  .pilot-responsibilities-grid { grid-template-columns: 1fr; }
+  .trust-hero-scene { min-height: 24rem; }
+  .trust-hero-chat { width: 46%; top: 0; }
+  .trust-hero-receipt { width: 44%; }
   .conversation-stage { min-height: 33rem; transform: none; margin: 0; }
   .phone-frame-main { right: 0; width: 17rem; height: 31rem; }
   .phone-frame-side { left: 0; width: 12.5rem; height: 20rem; }

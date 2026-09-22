@@ -56,11 +56,137 @@ export const TRUST_PRINCIPLES = [
   ['People stay in control', 'Restaurant staff can reject, correct and resolve orders when circumstances change.']
 ] as const;
 
+export interface TrustFeature {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  bullets: readonly string[];
+}
+
+export const TRUST_FEATURES: readonly TrustFeature[] = [
+  {
+    eyebrow: 'Menu-grounded answers',
+    heading: 'Answers draw from your saved menu.',
+    body: 'OrderBridge reads saved menu items, current prices and availability before forming a response. When a requested item is unclear or unavailable, the system asks for clarification rather than substituting something else.',
+    bullets: [
+      'Items and prices come from your saved menu records',
+      'Availability is checked before confirming an item',
+      'Unclear requests prompt a clarifying question, not a guess'
+    ]
+  },
+  {
+    eyebrow: 'Transparent totals',
+    heading: 'Customers see the full cost before they submit.',
+    body: 'OrderBridge recalculates item prices and delivery fees from saved restaurant records and shows customers an itemised total for their review. Restaurant staff see the same breakdown when deciding whether to accept.',
+    bullets: [
+      'Item-level breakdown shown before submission',
+      'Delivery fee drawn from your configured delivery rules',
+      'Restaurant staff see totals on every incoming order'
+    ]
+  },
+  {
+    eyebrow: 'Access based on staff role',
+    heading: 'Each person gets the access their role requires.',
+    body: 'Customers, managers and owners interact with different parts of the system based on verified role. Sensitive operational actions stay restricted to the right level of authority.',
+    bullets: [
+      'Role checked before each sensitive action',
+      'Customer access is limited to their own order',
+      'Owner and manager tools stay separate from customer tools'
+    ]
+  },
+  {
+    eyebrow: 'Order records and consent',
+    heading: 'Order states are recorded. Outreach respects consent.',
+    body: 'Each order moves through defined states — submitted, under restaurant review, accepted or rejected, then completed. Follow-up messages are only sent when the order is eligible and customer consent is confirmed.',
+    bullets: [
+      'Four recorded order states from submission to completion',
+      'Receipts generated from saved order records, not written text',
+      'Follow-up messages check consent state before sending'
+    ]
+  }
+] as const;
+
+export interface TrustRole {
+  label: string;
+  description: string;
+}
+
+export const TRUST_ROLES: readonly TrustRole[] = [
+  {
+    label: 'Customer',
+    description: 'Browse the menu, ask questions, build and submit an order, choose pickup or delivery, and receive status updates and a receipt after acceptance.'
+  },
+  {
+    label: 'Manager',
+    description: 'Review and accept or reject submitted orders, update preparation and fulfilment status, manage menu availability, and access supported reporting on eligible plans.'
+  },
+  {
+    label: 'Owner',
+    description: 'All manager actions plus selected sensitive restaurant and menu configuration. Owners can also manage authorised contacts and campaign settings on eligible plans.'
+  }
+] as const;
+
+export interface TrustFaqItem {
+  question: string;
+  answer: string;
+}
+
+export const TRUST_FAQ: readonly TrustFaqItem[] = [
+  {
+    question: 'What information can customers see?',
+    answer: "Customers can browse menu items, prices and availability for the restaurant they are messaging. They can view their own order details and status. They cannot access other customers' orders or any restaurant management information."
+  },
+  {
+    question: 'Who can access restaurant order data?',
+    answer: 'Authorised owners and managers can review orders, history and receipts for their restaurant. Access is limited to contacts your restaurant has registered. OrderBridge staff access is restricted to what is needed to operate and support the service.'
+  },
+  {
+    question: 'Is customer order data shared with other restaurants?',
+    answer: "No. Each restaurant's orders, menu and customer conversations are kept separate. Data is not shared between restaurants on the platform."
+  },
+  {
+    question: 'What happens when a menu item is out of stock or unclear?',
+    answer: 'If a requested item is unavailable or the request is ambiguous, OrderBridge prompts the customer to clarify or choose an alternative. It does not substitute items or invent options that are not on your menu.'
+  },
+  {
+    question: 'Can customers see my restaurant\'s location?',
+    answer: 'Customers can see the address and delivery area information your restaurant has configured. You control what location details are saved and shown.'
+  }
+] as const;
+
 export const PILOT_TIMELINE = [
   ['Days 1-3', 'Restaurant and menu setup', 'We configure restaurant information, the menu, delivery rules and authorised contacts.'],
   ['Days 4-18', 'Live workflow support', 'Customers and staff use the WhatsApp workflow in real operating conditions with close support.'],
   ['Days 19-21', 'Review and refinement', 'We review feedback, identify gaps and agree on the highest-value improvements.']
 ] as const;
+
+export const PILOT_ELIGIBILITY = [
+  'Already taking orders through WhatsApp',
+  'Open to testing the product and sharing honest feedback',
+  'Has a consistent menu with set prices',
+  'Based in Ghana'
+] as const;
+
+export interface PilotResponsibilities {
+  readonly youBring: readonly string[];
+  readonly weSetUp: readonly string[];
+}
+
+export const PILOT_RESPONSIBILITIES: PilotResponsibilities = {
+  youBring: [
+    'Your existing WhatsApp business number for orders',
+    'Your menu items, prices and any customisations',
+    'A team member available to work with us during the pilot',
+    'Honest feedback on what works and what does not'
+  ],
+  weSetUp: [
+    'Restaurant and menu configuration',
+    'WhatsApp ordering flow setup',
+    'Staff onboarding and orientation session',
+    'Live support throughout the 14–21 day pilot',
+    'Review and refinement session at the end'
+  ]
+} as const;
 
 export const BUSINESS_TYPES = [
   ['Restaurants', 'Keep menu enquiries, orders and fulfilment decisions connected.'],

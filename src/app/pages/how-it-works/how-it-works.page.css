@@ -1,0 +1,64 @@
+:host { display: block; background: var(--surface-elevated); font-size: .9rem; }
+.page-container { max-width: 72rem; }
+h1 { font-size: clamp(2.3rem, 4vw, 3.4rem); line-height: 1.1; }
+h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.15; }
+h3 { font-size: 1rem; }
+.button i { margin-left: .55rem; font-size: 1.1rem; }
+.how-hero { padding-block: 2rem; }
+.how-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; }
+.how-hero-copy > p:not(.eyebrow) { max-width: 32rem; margin-bottom: 1.6rem; }
+.how-phone { width: min(100%, 20rem); margin: 0 auto; }
+.how-phone img, .receipt-phone img { height: auto; filter: drop-shadow(0 18px 20px var(--shadow)); }
+.how-journey { padding-block: 4.5rem; }
+.journey-heading { max-width: 40rem; margin-bottom: 2.5rem; }
+.journey-steps, .experience-checks { list-style: none; margin: 0; padding: 0; }
+.journey-steps, .journey-note, .experience-sides { font-size: .82rem; }
+.journey-step { position: relative; display: grid; grid-template-columns: 2.5rem 1fr 1fr; gap: 1.5rem; align-items: start; padding-bottom: 2rem; }
+.journey-step:not(:last-child)::before { content: ''; position: absolute; top: 2.5rem; bottom: 0; left: 1.2rem; border-left: 1px dashed var(--border); }
+.journey-number { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 50%; background: var(--green); color: var(--navy); font-weight: 600; }
+.journey-copy p, .journey-note p { margin: 0; }
+.journey-conversation { display: grid; gap: .65rem; padding: 1rem; border-radius: .75rem; background: var(--surface-tinted); }
+.journey-message { max-width: 92%; margin: 0; padding: .8rem 1rem; border-radius: .65rem .65rem .65rem .15rem; background: var(--surface-elevated); line-height: 1.65; }
+.restaurant-message { justify-self: end; border-radius: .65rem .65rem .15rem .65rem; background: #075941; color: #fff; }
+.journey-decision, .journey-note { display: flex; gap: 1rem; align-items: center; }
+.journey-decision { padding: 1rem 0; }
+.journey-decision i, .journey-note > i { color: var(--green-strong); font-size: 2rem; }
+.journey-decision p { margin: .3rem 0 0; }
+.journey-note { border: 1px solid var(--border); border-radius: .75rem; background: var(--surface-tinted); padding: 1.25rem 1.5rem; }
+.journey-note h3 { margin: 0 0 .3rem; font-size: .9rem; }
+.how-experience { padding-bottom: 4.5rem; }
+.experience-sides { display: grid; grid-template-columns: 1.45fr 1fr; gap: 2rem; align-items: center; }
+.customer-side { display: grid; grid-template-columns: 1fr .85fr; align-items: center; gap: .5rem; }
+.experience-label { color: var(--green-strong); font-size: .7rem; font-weight: 600; letter-spacing: .06em; }
+.experience-sides h2 { font-size: clamp(1.6rem, 2.4vw, 2rem); }
+.receipt-phone { margin: 0; }
+.receipt-phone figcaption { text-align: center; color: var(--muted); font-size: .65rem; }
+.restaurant-side { padding: 2rem; border-left: 1px solid var(--border); }
+.experience-checks { margin: 1.25rem 0; display: grid; gap: .8rem; }
+.experience-checks li { display: flex; gap: .6rem; align-items: start; line-height: 1.6; }
+.experience-checks i { color: var(--green-strong); font-size: 1.25rem; line-height: 1.25; }
+.how-cta { background: var(--navy); padding-block: 2.75rem; }
+.how-cta .page-container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.how-cta h2 { max-width: 30rem; color: var(--soft-white); font-size: 2rem; }
+.how-cta p { color: #cfe0e5; margin: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .how-phone { animation: how-phone-float 3.2s ease-in-out infinite alternate; }
+  @keyframes how-phone-float { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-12px) rotate(.35deg); } }
+}
+@media (max-width: 900px) {
+  .experience-sides { grid-template-columns: 1fr; }
+  .customer-side { grid-template-columns: 1fr 17rem; }
+  .restaurant-side { border-left: 0; border-top: 1px solid var(--border); padding: 2rem 0 0; }
+}
+@media (max-width: 640px) {
+  .how-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .how-phone { width: 16rem; }
+  .how-journey { padding-block: 3rem; }
+  .journey-step { grid-template-columns: 2.5rem minmax(0, 1fr); gap: .75rem; }
+  .journey-conversation, .journey-decision { grid-column: 2; }
+  .journey-note { align-items: start; padding: 1rem; }
+  .customer-side { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .receipt-phone { width: 17rem; margin: 0 auto; }
+  .how-experience { padding-bottom: 3rem; }
+  .how-cta .page-container { flex-direction: column; align-items: start; }
+}
