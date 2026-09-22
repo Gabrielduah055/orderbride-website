@@ -21,7 +21,7 @@
         aria-controls="mobile-menu"
         [attr.aria-label]="mobileMenuOpen() ? 'Close navigation' : 'Open navigation'"
       >
-        <span aria-hidden="true">{{ mobileMenuOpen() ? 'Close' : 'Menu' }}</span>
+        <i class="uil" [class.uil-bars]="!mobileMenuOpen()" [class.uil-times]="mobileMenuOpen()" aria-hidden="true"></i>
       </button>
     </div>
   </div>

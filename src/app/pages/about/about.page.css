@@ -1,0 +1,14 @@
+.about-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3.5rem; align-items: center; }
+.about-phone { display: grid; place-items: center; background: var(--surface-tinted); border-radius: .8rem; margin: 0; padding: 1rem; }
+.about-phone img { width: 16rem; height: auto; filter: drop-shadow(0 12px 18px var(--shadow)); }
+.about-story { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.5rem; }
+.about-story p:last-of-type { margin-bottom: 1rem; }
+.about-principles { padding-top: 0; }
+.principles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2rem; }
+.principles-grid article { border-top: 1px solid var(--border); padding-top: 1.25rem; }
+.principles-grid i { display: inline-block; color: var(--green-strong); font-size: 1.8rem; margin-bottom: .75rem; }
+.principles-grid p { font-size: .87rem; margin-bottom: 0; }
+@media (max-width: 767px) {
+  .about-hero-grid, .about-story, .principles-grid { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+  .about-phone img { width: 14rem; }
+}

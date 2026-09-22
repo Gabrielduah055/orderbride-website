@@ -1,5 +1,6 @@
 export const SITE_CONFIG = {
   name: 'OrderBridge AI',
+  contactEmail: 'gabrielagyemanduah@gmail.com',
   productionUrl: 'https://orderbride-website.vercel.app',
   bookingUrl: 'https://cal.com/gabriel-agyeman-duah-q3cizx/orderbridge-demo-pilot-consultation',
   pilotFormEndpoint: 'https://formsubmit.co/ajax/gabrielagyemanduah@gmail.com',

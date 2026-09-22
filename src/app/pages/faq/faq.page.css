@@ -1,0 +1,25 @@
+.faq-intro { text-align: center; padding-bottom: 1rem; }
+.faq-intro h1, .support-intro { margin-inline: auto; }
+.faq-tools { max-width: 46rem; margin: 1.75rem auto 0; }
+.faq-search { display: flex; align-items: center; gap: .75rem; padding-inline: 1rem; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: .65rem; }
+.faq-search:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
+.faq-search > i { font-size: 1.4rem; }
+.faq-search input { width: 100%; min-width: 0; padding-block: .9rem; border: 0; outline: none; color: var(--text); background: transparent; font-size: 1rem; }
+.faq-search button { min-width: 2.75rem; min-height: 2.75rem; border: 0; color: var(--text); background: transparent; cursor: pointer; font-size: 1.3rem; }
+.faq-topics { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-top: 1rem; }
+.faq-topics button { min-height: 2.75rem; padding: .5rem .9rem; border: 1px solid var(--border); border-radius: 2rem; color: var(--text); background: var(--surface-elevated); font-size: .78rem; cursor: pointer; }
+.faq-topics button[aria-pressed='true'] { background: var(--navy); color: var(--soft-white); border-color: var(--navy); }
+.result-count { margin: 1rem 0 0; font-size: .78rem; }
+.privacy-link { display: inline-block; margin-left: 1rem; font-size: .8rem; text-decoration: underline; text-underline-offset: 3px; }
+.faq-group { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 1.5rem; padding-block: 2rem; border-bottom: 1px solid var(--border); }
+.topic-icon { display: grid; place-items: center; height: 3.5rem; border-radius: 50%; background: var(--surface-tinted); color: var(--green-strong); font-size: 1.8rem; }
+.faq-group h2 { font-size: 1.4rem; margin-bottom: .4rem; }
+.topic-description { margin-bottom: 1rem; font-size: .85rem; }
+.faq-question { min-height: 3.4rem; padding-block: .8rem; font-size: .87rem; line-height: 1.5; }
+.faq-preview-item .faq-answer p { font-size: .87rem; padding-bottom: 1rem; }
+.faq-empty { padding-block: 3rem; text-align: center; }
+.faq-empty > i { font-size: 2rem; color: var(--green-strong); }
+@media (max-width: 767px) {
+  .faq-group { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+  .topic-icon { width: 2.75rem; height: 2.75rem; font-size: 1.5rem; }
+}

@@ -66,42 +66,38 @@ export interface TrustFeature {
 export const TRUST_FEATURES: readonly TrustFeature[] = [
   {
     eyebrow: 'Menu-grounded answers',
-    heading: 'Answers draw from your saved menu.',
-    body: 'OrderBridge reads saved menu items, current prices and availability before forming a response. When a requested item is unclear or unavailable, the system asks for clarification rather than substituting something else.',
+    heading: 'Your menu is the source.',
+    body: 'Answers use your saved menu, prices and availability. Keep these records up to date so customers get useful information.',
     bullets: [
-      'Items and prices come from your saved menu records',
-      'Availability is checked before confirming an item',
-      'Unclear requests prompt a clarifying question, not a guess'
+      'Menu items and prices come from restaurant records',
+      'Unclear requests prompt a clarifying question'
     ]
   },
   {
     eyebrow: 'Transparent totals',
-    heading: 'Customers see the full cost before they submit.',
-    body: 'OrderBridge recalculates item prices and delivery fees from saved restaurant records and shows customers an itemised total for their review. Restaurant staff see the same breakdown when deciding whether to accept.',
+    heading: 'A clear total before submission.',
+    body: 'Customers review an itemised order before sending it. Your team sees the breakdown when deciding whether to accept.',
     bullets: [
-      'Item-level breakdown shown before submission',
-      'Delivery fee drawn from your configured delivery rules',
-      'Restaurant staff see totals on every incoming order'
+      'Items, quantities and prices shown together',
+      'Delivery fees follow your configured rules'
     ]
   },
   {
-    eyebrow: 'Access based on staff role',
-    heading: 'Each person gets the access their role requires.',
-    body: 'Customers, managers and owners interact with different parts of the system based on verified role. Sensitive operational actions stay restricted to the right level of authority.',
+    eyebrow: 'Restaurant approval',
+    heading: 'Submitted is not accepted.',
+    body: 'A customer submits a request. Authorised restaurant staff review it and decide whether to accept or reject it.',
     bullets: [
-      'Role checked before each sensitive action',
-      'Customer access is limited to their own order',
-      'Owner and manager tools stay separate from customer tools'
+      'Your team makes the acceptance decision',
+      'Customers receive updates as the order progresses'
     ]
   },
   {
-    eyebrow: 'Order records and consent',
-    heading: 'Order states are recorded. Outreach respects consent.',
-    body: 'Each order moves through defined states — submitted, under restaurant review, accepted or rejected, then completed. Follow-up messages are only sent when the order is eligible and customer consent is confirmed.',
+    eyebrow: 'Order records',
+    heading: 'Details that stay connected.',
+    body: 'Order details, status updates and receipts refer to the saved order, giving your team a record to check when questions come up.',
     bullets: [
-      'Four recorded order states from submission to completion',
-      'Receipts generated from saved order records, not written text',
-      'Follow-up messages check consent state before sending'
+      'Status changes recorded as the order progresses',
+      'Receipts generated from saved order details'
     ]
   }
 ] as const;
@@ -114,15 +110,15 @@ export interface TrustRole {
 export const TRUST_ROLES: readonly TrustRole[] = [
   {
     label: 'Customer',
-    description: 'Browse the menu, ask questions, build and submit an order, choose pickup or delivery, and receive status updates and a receipt after acceptance.'
+    description: 'Browse the menu, submit an order and view their own order details, status and receipt.'
   },
   {
     label: 'Manager',
-    description: 'Review and accept or reject submitted orders, update preparation and fulfilment status, manage menu availability, and access supported reporting on eligible plans.'
+    description: 'Review orders, accept or reject requests, update fulfilment and manage menu availability.'
   },
   {
     label: 'Owner',
-    description: 'All manager actions plus selected sensitive restaurant and menu configuration. Owners can also manage authorised contacts and campaign settings on eligible plans.'
+    description: 'Manager tools plus authorised contacts and selected restaurant settings. Reporting and campaign tools depend on the plan.'
   }
 ] as const;
 
@@ -138,11 +134,11 @@ export const TRUST_FAQ: readonly TrustFaqItem[] = [
   },
   {
     question: 'Who can access restaurant order data?',
-    answer: 'Authorised owners and managers can review orders, history and receipts for their restaurant. Access is limited to contacts your restaurant has registered. OrderBridge staff access is restricted to what is needed to operate and support the service.'
+    answer: 'Registered owners and managers use restaurant tools according to their assigned role. Customers have access to their own orders, not staff management tools.'
   },
   {
-    question: 'Is customer order data shared with other restaurants?',
-    answer: "No. Each restaurant's orders, menu and customer conversations are kept separate. Data is not shared between restaurants on the platform."
+    question: 'Does submitting an order mean it is accepted?',
+    answer: 'No. Submission sends the order for restaurant review. It is accepted only when authorised staff accept it; the customer then receives confirmation.'
   },
   {
     question: 'What happens when a menu item is out of stock or unclear?',
@@ -155,9 +151,9 @@ export const TRUST_FAQ: readonly TrustFaqItem[] = [
 ] as const;
 
 export const PILOT_TIMELINE = [
-  ['Days 1-3', 'Restaurant and menu setup', 'We configure restaurant information, the menu, delivery rules and authorised contacts.'],
-  ['Days 4-18', 'Live workflow support', 'Customers and staff use the WhatsApp workflow in real operating conditions with close support.'],
-  ['Days 19-21', 'Review and refinement', 'We review feedback, identify gaps and agree on the highest-value improvements.']
+  ['Set up', 'Prepare your restaurant', 'We configure your menu, delivery rules and team access, then walk staff through the workflow.'],
+  ['Test', 'Use it with real orders', 'Your team tries the WhatsApp workflow in day-to-day service, with support and feedback along the way.'],
+  ['Review', 'Decide what comes next', 'Together, we review what worked, identify gaps and discuss next steps before any wider rollout.']
 ] as const;
 
 export const PILOT_ELIGIBILITY = [

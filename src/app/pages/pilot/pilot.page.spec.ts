@@ -35,4 +35,28 @@ describe('PilotPage', () => {
     expect(page.isSubmitting).toBeFalse();
     expect(form.reset).not.toHaveBeenCalled();
   });
+
+  it('does not send an incomplete application', async () => {
+    (form.reportValidity as jasmine.Spy).and.returnValue(false);
+    const fetchSpy = spyOn(window, 'fetch');
+    await page.submitApplication(event);
+    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(page.submissionAttempted).toBeTrue();
+    expect(page.submissionError).toContain('required fields');
+  });
+
+  it('does not send a second request while one is pending', async () => {
+    page.isSubmitting = true;
+    const fetchSpy = spyOn(window, 'fetch');
+    await page.submitApplication(event);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('does not report success when the service rejects an application', async () => {
+    spyOn(window, 'fetch').and.resolveTo(new Response(JSON.stringify({ success: false }), { status: 200 }));
+    await page.submitApplication(event);
+    expect(page.applicationSubmitted).toBeFalse();
+    expect(page.submissionError).toContain('could not send');
+    expect(form.reset).not.toHaveBeenCalled();
+  });
 });

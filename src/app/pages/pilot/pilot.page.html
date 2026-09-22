@@ -1,13 +1,13 @@
 <!-- 1. HERO -->
 <section class="pilot-hero-refresh">
-  <div class="page-container page-hero-grid">
+  <div class="page-container pilot-hero-grid">
     <div class="reveal">
       <p class="eyebrow">Pilot program</p>
-      <h1>Bring your WhatsApp ordering into a guided pilot.</h1>
-      <p class="pilot-hero-intro">Test OrderBridge with your restaurant in a hands-on pilot. We set up your menu, ordering flow and operations together — so you can validate it before a wider rollout.</p>
+      <h1>Try OrderBridge.<br><span>With your restaurant.</span></h1>
+      <p class="pilot-hero-intro">A guided 14–21 day pilot to test WhatsApp ordering with your menu, your team and real customers. We help you set up, learn what works and review the next steps together.</p>
       <div class="button-row">
-        <a href="#pilot-apply" class="button button-primary">Apply for the pilot <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
-        <a routerLink="/book-demo" class="button button-secondary">Book a demo</a>
+        <a routerLink="/pilot" fragment="pilot-apply" queryParamsHandling="preserve" class="button button-primary">Apply for the pilot <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+        <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-secondary">Book a demo</a>
       </div>
       <p class="pilot-hero-tag">Built in Ghana for restaurants that already sell through WhatsApp.</p>
     </div>
@@ -24,24 +24,24 @@
 <section class="value-strip" aria-label="Pilot highlights">
   <div class="page-container value-strip-grid">
     <article>
-      <i class="uil uil-whatsapp" aria-hidden="true"></i>
+      <i class="uil uil-calendar-alt" aria-hidden="true"></i>
       <div>
-        <strong>Works with WhatsApp</strong>
-        <span>Your existing number. No new app.</span>
+        <strong>14–21 days</strong>
+        <span>Setup, live testing and a shared review.</span>
       </div>
     </article>
     <article>
-      <i class="uil uil-restaurant" aria-hidden="true"></i>
+      <i class="uil uil-users-alt" aria-hidden="true"></i>
       <div>
-        <strong>Built for restaurants</strong>
-        <span>Menus, orders and fulfilment.</span>
+        <strong>Hands-on support</strong>
+        <span>Menu setup and staff orientation included.</span>
       </div>
     </article>
     <article>
       <i class="uil uil-shield-check" aria-hidden="true"></i>
       <div>
-        <strong>Simple and reliable</strong>
-        <span>Clear, structured, permission-aware.</span>
+        <strong>No pilot fee</strong>
+        <span>Next steps discussed at the final review.</span>
       </div>
     </article>
   </div>
@@ -52,8 +52,8 @@
   <div class="page-container pilot-eligibility-grid">
     <div>
       <p class="eyebrow">Who the pilot is for</p>
-      <h2>A small group. A bigger opportunity.</h2>
-      <p>We are inviting a select number of restaurants in Ghana to join our pilot programme. You will get hands-on support as we set up your menu, WhatsApp ordering and operations together — and help us shape a product that truly works for local food businesses.</p>
+      <h2>Already taking orders on WhatsApp?</h2>
+      <p>The pilot is for food businesses in Ghana ready to try a more structured ordering flow and share feedback from everyday service.</p>
     </div>
     <ul class="pilot-eligibility-list" aria-label="Pilot eligibility criteria">
       @for (criterion of eligibility; track criterion) {
@@ -67,16 +67,9 @@
 <section class="page-section pilot-process">
   <div class="page-container pilot-process-grid">
     <div>
-      <p class="eyebrow">What the pilot includes</p>
-      <h2>Guided setup, not a self-service switch.</h2>
-      <p>We work closely with each restaurant over 14–21 days to configure accurate data, support staff and observe real operations before reviewing what needs to improve.</p>
-      <ul>
-        <li>Restaurant and menu configuration</li>
-        <li>WhatsApp ordering flow</li>
-        <li>Staff onboarding</li>
-        <li>Live operating support</li>
-        <li>Review and refinement session</li>
-      </ul>
+      <p class="eyebrow">How the pilot works</p>
+      <h2>Set up. Test. Review.</h2>
+      <p>We work through three stages over 14–21 days. The schedule is agreed with your team before the pilot starts.</p>
     </div>
     <ol>
       @for (phase of timeline; track phase[0]) {
@@ -94,17 +87,15 @@
   <div class="page-container">
     <div class="pilot-responsibilities-grid">
       <article class="pilot-responsibilities-card">
-        <p class="panel-kicker">What you bring</p>
-        <p>You are the expert on your restaurant. We need your input to configure everything accurately.</p>
+        <h3>What you bring</h3>
         <ul>
           @for (item of responsibilities.youBring; track item) {
             <li>{{ item }}</li>
           }
         </ul>
       </article>
-      <article class="pilot-responsibilities-card pilot-responsibilities-card--dark">
-        <p class="panel-kicker">What we set up</p>
-        <p>Our commitment to you throughout the pilot period.</p>
+      <article class="pilot-responsibilities-card">
+        <h3>What we provide</h3>
         <ul>
           @for (item of responsibilities.weSetUp; track item) {
             <li>{{ item }}</li>
@@ -120,7 +111,7 @@
   <div class="page-container pilot-form-grid">
     <div>
       <p class="eyebrow">Apply for the pilot</p>
-      <h2>Get started in a few minutes.</h2>
+      <h2>Let's find out if it fits.</h2>
       <p>Tell us a little about your restaurant and what you would like to try with OrderBridge.</p>
       <ol class="pilot-next-steps" aria-label="What happens after you apply">
         <li>
@@ -132,7 +123,7 @@
         <li>
           <div>
             <strong>A conversation</strong>
-            <p>We contact you to discuss your restaurant, timing and any questions — then agree on a start date.</p>
+            <p>If there is a fit, we discuss your restaurant, answer questions and agree on timing.</p>
           </div>
         </li>
         <li>
@@ -156,10 +147,10 @@
         <p id="pilot-form-help">Tell us a little about your food business.</p>
         @if (submissionError) {
           <div class="form-error" role="alert" tabindex="-1">
-            <strong>Please check the form.</strong><p>{{ submissionError }}</p>
+            <strong>Application not sent.</strong><p>{{ submissionError }}</p>
           </div>
         }
-        <form aria-describedby="pilot-form-help" (submit)="submitApplication($event)" novalidate>
+        <form aria-describedby="pilot-form-help" [class.was-submitted]="submissionAttempted" [attr.aria-busy]="isSubmitting" (submit)="submitApplication($event)" novalidate>
           <div class="field"><label for="restaurant">Business name</label><input id="restaurant" name="Business name" required autocomplete="organization"></div>
           <div class="field-row">
             <div class="field"><label for="name">Your name</label><input id="name" name="Applicant name" required autocomplete="name"></div>

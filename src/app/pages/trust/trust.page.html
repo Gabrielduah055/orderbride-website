@@ -3,31 +3,22 @@
   <div class="page-container trust-hero-grid">
     <div class="trust-hero-copy reveal">
       <p class="eyebrow">Trust</p>
-      <h1>Trust every order because the details are clear.</h1>
-      <p class="trust-hero-intro">OrderBridge keeps restaurant conversations, orders and customer information structured, transparent and permission-aware — so everyone sees exactly what happened, from chat to kitchen to delivery.</p>
+      <h1>Clear details.<br><span>Your team in control.</span></h1>
+      <p class="trust-hero-intro">Answers from your menu. Orders reviewed by your team. OrderBridge connects the conversation to a clear record, with access based on each person's role.</p>
       <div class="button-row">
-        <a routerLink="/book-demo" class="button button-primary">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+        <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-primary">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
         <a routerLink="/how-it-works" class="button button-secondary">See how it works</a>
       </div>
     </div>
 
-    <div class="trust-hero-scene reveal reveal-delay" aria-label="OrderBridge WhatsApp order and food receipt">
-      <figure class="trust-hero-chat">
+    <div class="trust-phone-scene reveal reveal-delay">
+      <figure class="trust-phone">
         <img
           src="/assets/product/orderbridge-phone-menu.png"
           width="408"
           height="612"
           fetchpriority="high"
           alt="A WhatsApp conversation showing a restaurant menu with current items and prices"
-        >
-      </figure>
-      <figure class="trust-hero-receipt">
-        <img
-          src="/assets/product/trust-receipt.png"
-          width="421"
-          height="782"
-          fetchpriority="high"
-          alt="A food order receipt from Golden Grill showing Special Noodles and a GHS 75 total"
         >
       </figure>
     </div>
@@ -48,7 +39,7 @@
       <i class="uil uil-clipboard-notes" aria-hidden="true"></i>
       <div>
         <strong>Restaurant approval</strong>
-        <span>Staff accept every order before action.</span>
+        <span>Your team reviews orders before acceptance.</span>
       </div>
     </article>
     <article>
@@ -86,13 +77,13 @@
   <div class="page-container role-grid">
     <div>
       <p class="eyebrow">Owner and manager permissions</p>
-      <h2>Access follows the role, not the conversation.</h2>
-      <p>The same restaurant can serve customers, managers and owners through WhatsApp — each seeing only what their role allows. Permissions are set in the backend, not derived from message content.</p>
+      <h2>The right tools for each role.</h2>
+      <p>Customer, manager and owner access is checked against registered roles. Asking for a staff action in a chat does not grant permission to use it.</p>
     </div>
     <div class="role-table" role="table" aria-label="OrderBridge role permissions">
       @for (role of roles; track role.label) {
         <div role="row">
-          <strong role="columnheader">{{ role.label }}</strong>
+          <strong role="rowheader">{{ role.label }}</strong>
           <span role="cell">{{ role.description }}</span>
         </div>
       }
@@ -105,13 +96,13 @@
   <div class="page-container consent-grid">
     <div>
       <p class="eyebrow">Consent-aware outreach</p>
-      <h2>Follow-up only where consent is confirmed.</h2>
-      <p>When a supported plan enables customer follow-up, OrderBridge checks the customer's consent state, opt-out status and campaign version before sending. Outreach that is no longer eligible is cancelled rather than sent.</p>
+      <h2>Follow up with permission.</h2>
+      <p>On supported plans, customer outreach checks consent and opt-out status before sending. Ordering from your restaurant is not a blanket invitation to receive promotions.</p>
     </div>
-    <div class="trust-statement">
-      <p>Language helps choose the tool.</p>
-      <p>Trusted records define the result.</p>
-      <p>People retain the final authority.</p>
+    <div class="consent-note">
+      <i class="uil uil-comment-check" aria-hidden="true"></i>
+      <div><h3>Order updates and promotions are different.</h3>
+      <p>Keep customers informed about their order. Treat promotional follow-up as a separate, consent-aware action.</p></div>
     </div>
   </div>
 </section>
@@ -131,6 +122,7 @@
             <button
               type="button"
               class="faq-question"
+              [id]="'trust-question-' + index"
               [attr.aria-expanded]="openFaqIndex === index"
               [attr.aria-controls]="'trust-faq-' + index"
               (click)="toggleFaq(index)"
@@ -142,6 +134,9 @@
           <div
             class="faq-answer"
             [id]="'trust-faq-' + index"
+            role="region"
+            [attr.aria-labelledby]="'trust-question-' + index"
+            [attr.inert]="openFaqIndex !== index ? '' : null"
             [attr.aria-hidden]="openFaqIndex !== index"
           >
             <div><p>{{ item.answer }}</p></div>
@@ -156,9 +151,9 @@
 <section class="final-cta">
   <div class="page-container final-cta-inner">
     <div>
-      <h2>Ready to see the workflow in action?</h2>
-      <p>A product demo walks through submission, restaurant acceptance, receipts and staff permissions.</p>
+      <h2>See the controls in action.</h2>
+      <p>Walk through order review, receipts and team access in a demo.</p>
     </div>
-    <a routerLink="/book-demo" class="button button-light">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+    <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-light">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
   </div>
 </section>

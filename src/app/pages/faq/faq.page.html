@@ -1,2 +1,51 @@
-<section class="page-hero"><div class="page-container narrow-hero"><p class="eyebrow">Frequently asked questions</p><h1>What restaurants and customers need to know.</h1><p>Clear answers about ordering, permissions, fulfilment, receipts, campaigns and the pilot.</p></div></section>
-<section class="page-section faq-section"><div class="page-container faq-layout"><div><h2>Product and pilot questions</h2><p>These answers reflect current backend behaviour. Plan-dependent features are identified where relevant.</p><a routerLink="/book-demo" class="text-link">Ask about your workflow <span aria-hidden="true">→</span></a></div><div class="faq-list">@for (item of items; track item.question; let first = $first) { <details [attr.open]="first ? '' : null"><summary><span>{{ item.question }}</span><span aria-hidden="true">+</span></summary><p>{{ item.answer }}</p></details> }</div></div></section>
+<section class="support-hero faq-intro">
+  <div class="page-container">
+    <p class="eyebrow">FAQ</p>
+    <h1>Questions before you<br><span>get started?</span></h1>
+    <p class="support-intro">Find clear answers about WhatsApp ordering, your restaurant's controls and the OrderBridge pilot.</p>
+    <div class="faq-tools">
+      <label class="sr-only" for="faq-search">Search questions and answers</label>
+      <div class="faq-search">
+        <i class="uil uil-search" aria-hidden="true"></i>
+        <input #searchBox id="faq-search" type="search" placeholder="Search questions…" autocomplete="off" [value]="query()" (input)="search($event)" aria-controls="faq-results">
+        @if (query()) { <button type="button" (click)="reset(); searchBox.focus()" aria-label="Clear search and filters"><i class="uil uil-times" aria-hidden="true"></i></button> }
+      </div>
+      <div class="faq-topics" role="group" aria-label="Filter by topic">
+        <button type="button" [attr.aria-pressed]="topic() === 'all'" (click)="selectTopic('all')">All topics</button>
+        @for (item of topics; track item.id) {
+          <button type="button" [attr.aria-pressed]="topic() === item.id" (click)="selectTopic(item.id)">{{ item.title }}</button>
+        }
+      </div>
+      <p class="result-count" role="status" aria-live="polite" aria-atomic="true">{{ resultCount() }} {{ resultCount() === 1 ? 'answer' : 'answers' }}{{ query() || topic() !== 'all' ? ' found' : ' across six topics' }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-results page-container" id="faq-results" aria-label="Questions and answers">
+  @for (group of groups(); track group.id) {
+    <section class="faq-group" [attr.aria-labelledby]="'topic-' + group.id">
+      <span class="topic-icon"><i [class]="'uil ' + group.icon" aria-hidden="true"></i></span>
+      <div>
+        <h2 [id]="'topic-' + group.id">{{ group.title }}</h2>
+        <p class="topic-description">{{ group.description }}</p>
+        <div class="faq-preview-list">
+          @for (item of group.items; track item.id) {
+            <article class="faq-preview-item" [class.is-open]="openId() === item.id">
+              <h3><button type="button" class="faq-question" [id]="'question-' + item.id" [attr.aria-expanded]="openId() === item.id" [attr.aria-controls]="'answer-' + item.id" (click)="toggle(item.id)">
+                <span>{{ item.question }}</span><span class="faq-toggle" aria-hidden="true">+</span>
+              </button></h3>
+              <div class="faq-answer" [id]="'answer-' + item.id" role="region" [attr.aria-labelledby]="'question-' + item.id" [attr.aria-hidden]="openId() !== item.id" [attr.inert]="openId() !== item.id ? '' : null"><div><p>{{ item.answer }}</p></div></div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  } @empty {
+    <div class="faq-empty"><i class="uil uil-search" aria-hidden="true"></i><h2>No matching questions.</h2><p>Try a shorter search, choose another topic or contact our team below.</p><button type="button" class="button button-secondary" (click)="reset(); searchBox.focus()">Show all questions</button></div>
+  }
+</section>
+
+<section class="support-cta page-container">
+  <div><p class="eyebrow">Still have a question?</p><h2>We're here to help.</h2><p>Talk to us about your restaurant, your workflow and the next steps.</p><a [href]="'mailto:' + contactEmail" class="text-link">Contact our team <span aria-hidden="true">→</span></a> <a routerLink="/privacy" class="privacy-link">Website privacy notice</a></div>
+  <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-primary">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+</section>
