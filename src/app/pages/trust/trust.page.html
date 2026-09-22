@@ -1,9 +1,164 @@
-<section class="page-hero trust-hero"><div class="page-container narrow-hero"><p class="eyebrow">Trust and control</p><h1>AI can understand the request. The system controls the consequence.</h1><p>OrderBridge separates conversational interpretation from trusted identity, permissions, data and state changes.</p></div></section>
+<!-- 1. HERO -->
+<section class="trust-hero-refresh">
+  <div class="page-container trust-hero-grid">
+    <div class="trust-hero-copy reveal">
+      <p class="eyebrow">Trust</p>
+      <h1>Trust every order because the details are clear.</h1>
+      <p class="trust-hero-intro">OrderBridge keeps restaurant conversations, orders and customer information structured, transparent and permission-aware — so everyone sees exactly what happened, from chat to kitchen to delivery.</p>
+      <div class="button-row">
+        <a routerLink="/book-demo" class="button button-primary">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+        <a routerLink="/how-it-works" class="button button-secondary">See how it works</a>
+      </div>
+    </div>
 
-<section class="page-section principles-section"><div class="page-container principle-list">@for (principle of principles; track principle[0]; let index = $index) { <article><span>{{ index + 1 }}</span><div><h2>{{ principle[0] }}</h2><p>{{ principle[1] }}</p></div></article> }</div></section>
+    <div class="trust-hero-scene reveal reveal-delay" aria-label="OrderBridge WhatsApp order and food receipt">
+      <figure class="trust-hero-chat">
+        <img
+          src="/assets/product/orderbridge-phone-menu.png"
+          width="408"
+          height="612"
+          fetchpriority="high"
+          alt="A WhatsApp conversation showing a restaurant menu with current items and prices"
+        >
+      </figure>
+      <figure class="trust-hero-receipt">
+        <img
+          src="/assets/product/trust-receipt.png"
+          width="421"
+          height="782"
+          fetchpriority="high"
+          alt="A food order receipt from Golden Grill showing Special Noodles and a GHS 75 total"
+        >
+      </figure>
+    </div>
+  </div>
+</section>
 
-<section class="page-section role-section"><div class="page-container role-grid"><div><h2>Access follows a trusted role.</h2><p>The same restaurant conversation can serve different people without giving everyone the same authority.</p></div><div class="role-table" role="table" aria-label="OrderBridge role permissions"><div role="row"><strong role="columnheader">Customer</strong><span role="cell">Menu discovery, recommendations, personal order draft, submission and eligible changes.</span></div><div role="row"><strong role="columnheader">Manager</strong><span role="cell">Supported order operations, availability, reports, reminders and campaigns.</span></div><div role="row"><strong role="columnheader">Owner</strong><span role="cell">Manager tools plus selected sensitive restaurant and menu actions.</span></div></div></div></section>
+<!-- 2. VALUE STRIP -->
+<section class="value-strip" aria-label="Trust highlights">
+  <div class="page-container value-strip-grid">
+    <article>
+      <i class="uil uil-book-open" aria-hidden="true"></i>
+      <div>
+        <strong>Menu-grounded answers</strong>
+        <span>Prices and items from your saved menu.</span>
+      </div>
+    </article>
+    <article>
+      <i class="uil uil-clipboard-notes" aria-hidden="true"></i>
+      <div>
+        <strong>Restaurant approval</strong>
+        <span>Staff accept every order before action.</span>
+      </div>
+    </article>
+    <article>
+      <i class="uil uil-user-check" aria-hidden="true"></i>
+      <div>
+        <strong>Role-based access</strong>
+        <span>Customer, manager and owner tools stay separate.</span>
+      </div>
+    </article>
+  </div>
+</section>
 
-<section class="consent-section"><div class="page-container consent-grid"><div><p class="eyebrow">Consent-aware outreach</p><h2>Campaign eligibility is checked again before sending.</h2><p>Supported campaign workflows account for plan access, customer preference, consent state, opt-outs and campaign version. Stale work is cancelled instead of sent.</p></div><div class="trust-statement"><p>Language helps choose the tool.</p><p>Trusted records define the result.</p><p>People retain the final authority.</p></div></div></section>
+<!-- 3. FOUR FEATURE BLOCKS -->
+<section class="page-section trust-features-section">
+  <div class="page-container">
+    <div class="trust-features-grid">
+      @for (feature of features; track feature.eyebrow) {
+        <article class="trust-feature">
+          <p class="eyebrow">{{ feature.eyebrow }}</p>
+          <h2>{{ feature.heading }}</h2>
+          <p>{{ feature.body }}</p>
+          <ul>
+            @for (bullet of feature.bullets; track bullet) {
+              <li><i class="uil uil-check" aria-hidden="true"></i>{{ bullet }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
 
-<section class="page-section"><div class="page-container simple-cta"><div><h2>See the safeguards in the real workflow.</h2><p>A product demo can walk through submission, acceptance, receipts and staff permissions.</p></div><a routerLink="/book-demo" class="button button-primary">Book a demo</a></div></section>
+<!-- 4. ROLE COMPARISON TABLE -->
+<section class="page-section role-section">
+  <div class="page-container role-grid">
+    <div>
+      <p class="eyebrow">Owner and manager permissions</p>
+      <h2>Access follows the role, not the conversation.</h2>
+      <p>The same restaurant can serve customers, managers and owners through WhatsApp — each seeing only what their role allows. Permissions are set in the backend, not derived from message content.</p>
+    </div>
+    <div class="role-table" role="table" aria-label="OrderBridge role permissions">
+      @for (role of roles; track role.label) {
+        <div role="row">
+          <strong role="columnheader">{{ role.label }}</strong>
+          <span role="cell">{{ role.description }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 5. CONSENT & ORDER RECORDS -->
+<section class="consent-section">
+  <div class="page-container consent-grid">
+    <div>
+      <p class="eyebrow">Consent-aware outreach</p>
+      <h2>Follow-up only where consent is confirmed.</h2>
+      <p>When a supported plan enables customer follow-up, OrderBridge checks the customer's consent state, opt-out status and campaign version before sending. Outreach that is no longer eligible is cancelled rather than sent.</p>
+    </div>
+    <div class="trust-statement">
+      <p>Language helps choose the tool.</p>
+      <p>Trusted records define the result.</p>
+      <p>People retain the final authority.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. TRUST FAQ -->
+<section class="page-section faq-section">
+  <div class="page-container faq-layout">
+    <div>
+      <p class="eyebrow">Frequently asked questions</p>
+      <h2>Quick answers about trust.</h2>
+      <p>More questions? Read our <a routerLink="/faq" class="text-link">full FAQ <span aria-hidden="true">→</span></a></p>
+    </div>
+    <div class="faq-list faq-preview-list">
+      @for (item of faq; track item.question; let index = $index) {
+        <article class="faq-preview-item" [class.is-open]="openFaqIndex === index">
+          <h3>
+            <button
+              type="button"
+              class="faq-question"
+              [attr.aria-expanded]="openFaqIndex === index"
+              [attr.aria-controls]="'trust-faq-' + index"
+              (click)="toggleFaq(index)"
+            >
+              <span>{{ item.question }}</span>
+              <span class="faq-toggle" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div
+            class="faq-answer"
+            [id]="'trust-faq-' + index"
+            [attr.aria-hidden]="openFaqIndex !== index"
+          >
+            <div><p>{{ item.answer }}</p></div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 7. FINAL CTA -->
+<section class="final-cta">
+  <div class="page-container final-cta-inner">
+    <div>
+      <h2>Ready to see the workflow in action?</h2>
+      <p>A product demo walks through submission, restaurant acceptance, receipts and staff permissions.</p>
+    </div>
+    <a routerLink="/book-demo" class="button button-light">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</section>

@@ -1,31 +1,83 @@
-<section class="page-hero restaurants-hero">
-  <div class="page-container page-hero-grid">
-    <div><p class="eyebrow">For restaurants</p><h1>Add structure to the way customers already order.</h1><p>Keep the convenience of WhatsApp while giving every menu question, order and fulfilment decision a clearer path.</p><a routerLink="/pilot" class="button button-primary">Explore the pilot</a></div>
-    <figure class="restaurant-hero-image"><picture><source media="(max-width: 640px)" srcset="/assets/photography/shawarma-meal-480.webp"><img src="/assets/photography/shawarma-meal-940.webp" width="940" height="1670" fetchpriority="high" alt="A shawarma meal prepared for takeaway"></picture></figure>
+<section class="owners-hero">
+  <div class="page-container owners-hero-grid">
+    <div class="owners-copy reveal">
+      <p class="eyebrow">For restaurants</p>
+      <h1>Keep selling on WhatsApp.<br><span>Run orders with more control.</span></h1>
+      <p>Organise customer requests, review each order and keep your team focused on great food and service.</p>
+      <div class="button-row">
+        <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-primary">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+        <a routerLink="/how-it-works" class="button button-secondary">See how it works</a>
+      </div>
+    </div>
+    <figure class="owners-photo reveal reveal-delay">
+      <img src="/assets/photography/chopbox-storefront-736.webp" srcset="/assets/photography/chopbox-storefront-480.webp 480w, /assets/photography/chopbox-storefront-736.webp 736w" sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1200px) 45vw, 540px" width="736" height="1308" fetchpriority="high" alt="Customers at the counter of The Chopbox restaurant in Ghana">
+    </figure>
   </div>
 </section>
 
-<section class="page-section business-types-section">
+<section class="owners-challenges" aria-labelledby="challenges-title">
   <div class="page-container">
-    <div class="section-copy"><h2>Designed for food businesses with active conversations.</h2><p>OrderBridge is most useful where customers already ask questions, place orders and expect updates through chat.</p></div>
-    <div class="business-type-grid">
-      @for (business of businessTypes; track business[0]; let index = $index) {
-        <article><span>{{ index + 1 }}</span><h3>{{ business[0] }}</h3><p>{{ business[1] }}</p></article>
+    <header class="owners-heading">
+      <h2 id="challenges-title">Busy chats should not mean<br>harder work.</h2>
+      <p>WhatsApp feels familiar to customers. Give your team a clearer way to manage what comes next.</p>
+    </header>
+    <div class="comparison-head" aria-hidden="true"><span>Common challenges</span><span>With OrderBridge</span></div>
+    <dl class="owners-comparison">
+      @for (item of challenges; track item.problem) {
+        <div class="comparison-row">
+          <dt><i class="uil uil-minus" aria-hidden="true"></i>{{ item.problem }}</dt>
+          <dd><i class="uil uil-check-circle" aria-hidden="true"></i><span><span class="sr-only">With OrderBridge: </span>{{ item.solution }}</span></dd>
+        </div>
+      }
+    </dl>
+  </div>
+</section>
+
+<section class="owners-product" aria-labelledby="owners-product-title">
+  <div class="page-container owners-product-grid">
+    <figure class="owners-phone">
+      <img src="/assets/product/orderbridge-phone-menu.png" width="408" height="612" loading="lazy" alt="OrderBridge sharing a restaurant menu and prices in a WhatsApp conversation">
+    </figure>
+    <div>
+      <h2 id="owners-product-title">Less chasing details.<br>More control over orders.</h2>
+      <p>Order requests are organised into clear details for your team to review. You decide what happens next.</p>
+      <ul class="owners-benefits">
+        @for (benefit of benefits; track benefit.title) {
+          <li><i [class]="benefit.icon" aria-hidden="true"></i><div><h3>{{ benefit.title }}</h3><p>{{ benefit.description }}</p></div></li>
+        }
+      </ul>
+      <a routerLink="/product" class="text-link">Explore the product <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="owners-ghana" aria-labelledby="ghana-title">
+  <div class="page-container owners-ghana-grid">
+    <div><p class="eyebrow">Built in Ghana</p><h2 id="ghana-title">For the way<br>your business sells.</h2></div>
+    <div>
+      <p>For restaurants, takeaways, cafés and food brands already taking orders through conversation. Start with a supported pilot shaped around your menu and daily workflow.</p>
+      <a routerLink="/pilot" [queryParams]="utm.queryParams()" class="text-link">Explore the pilot <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="owners-faq" aria-labelledby="owners-faq-title">
+  <div class="page-container owners-faq-grid">
+    <div><h2 id="owners-faq-title">A few questions<br>before you start.</h2><p>Practical answers for restaurant owners.</p><a routerLink="/faq" class="text-link">View all FAQs <span aria-hidden="true">→</span></a></div>
+    <div class="faq-list faq-preview-list">
+      @for (item of faqs; track item.question; let index = $index) {
+        <article class="faq-preview-item" [class.is-open]="openFaqIndex === index">
+          <h3><button type="button" class="faq-question" [id]="'owners-faq-question-' + index" [attr.aria-expanded]="openFaqIndex === index" [attr.aria-controls]="'owners-faq-answer-' + index" (click)="toggleFaq(index)"><span>{{ item.question }}</span><span class="faq-toggle" aria-hidden="true">+</span></button></h3>
+          <div class="faq-answer" role="region" [id]="'owners-faq-answer-' + index" [attr.aria-labelledby]="'owners-faq-question-' + index" [attr.aria-hidden]="openFaqIndex !== index" [attr.inert]="openFaqIndex !== index ? '' : null"><div><p>{{ item.answer }}</p></div></div>
+        </article>
       }
     </div>
   </div>
 </section>
 
-<section class="restaurant-ops-section">
-  <div class="page-container restaurant-ops-grid">
-    <figure><picture><source media="(max-width: 640px)" srcset="/assets/photography/chopbox-storefront-480.webp"><img src="/assets/photography/chopbox-storefront-736.webp" width="736" height="1308" loading="lazy" alt="The Chopbox storefront in Ghana"></picture></figure>
-    <div><h2>Configuration starts with the real restaurant.</h2><p>Opening hours, pickup information, menu availability, authorised staff, delivery areas and fee rules shape every answer and action.</p><dl><div><dt>Menu and availability</dt><dd>Saved items, current prices and daily availability.</dd></div><div><dt>Fulfilment rules</dt><dd>Pickup, flat delivery, zone-based delivery or manual fee confirmation.</dd></div><div><dt>Authorised team</dt><dd>Trusted owner and manager contacts with distinct permissions.</dd></div><div><dt>Restaurant voice</dt><dd>A configured tone that still feels like the business.</dd></div></dl></div>
-  </div>
-</section>
-
-<section class="page-section rider-section">
-  <div class="page-container rider-grid">
-    <div><h2>Delivery details stay connected to the order.</h2><p>OrderBridge records the customer's delivery choice, resolves the appropriate fee and keeps the restaurant in control of acceptance and fulfilment.</p><a routerLink="/how-it-works" class="text-link">See the complete order flow <span aria-hidden="true">→</span></a></div>
-    <figure><picture><source media="(max-width: 640px)" srcset="/assets/photography/orderbridge-rider-480.webp"><source media="(max-width: 1024px)" srcset="/assets/photography/orderbridge-rider-760.webp"><img src="/assets/photography/orderbridge-rider-1120.webp" width="1120" height="1402" loading="lazy" alt="An OrderBridge delivery rider on a motorbike"></picture></figure>
+<section class="owners-cta" aria-labelledby="owners-cta-title">
+  <div class="page-container owners-cta-inner">
+    <div><h2 id="owners-cta-title">Ready to take control of your orders?</h2><p>See how OrderBridge fits your restaurant's workflow.</p></div>
+    <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-primary">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
   </div>
 </section>

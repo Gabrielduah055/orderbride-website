@@ -1,23 +1,201 @@
-<section class="page-hero pilot-hero"><div class="page-container page-hero-grid"><div><p class="eyebrow">Restaurant pilot</p><h1>Test OrderBridge in the rhythm of a real service.</h1><p>A focused 14-21 day pilot for selected Ghanaian food businesses, with setup, onboarding, live operating support and refinement.</p></div><figure><picture><source media="(max-width: 640px)" srcset="/assets/photography/chopbox-storefront-480.webp"><img src="/assets/photography/chopbox-storefront-736.webp" width="736" height="1308" fetchpriority="high" alt="A Ghanaian food business storefront"></picture></figure></div></section>
+<!-- 1. HERO -->
+<section class="pilot-hero-refresh">
+  <div class="page-container page-hero-grid">
+    <div class="reveal">
+      <p class="eyebrow">Pilot program</p>
+      <h1>Bring your WhatsApp ordering into a guided pilot.</h1>
+      <p class="pilot-hero-intro">Test OrderBridge with your restaurant in a hands-on pilot. We set up your menu, ordering flow and operations together — so you can validate it before a wider rollout.</p>
+      <div class="button-row">
+        <a href="#pilot-apply" class="button button-primary">Apply for the pilot <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+        <a routerLink="/book-demo" class="button button-secondary">Book a demo</a>
+      </div>
+      <p class="pilot-hero-tag">Built in Ghana for restaurants that already sell through WhatsApp.</p>
+    </div>
+    <figure class="reveal reveal-delay" aria-label="The Chopbox restaurant storefront in Ghana">
+      <picture>
+        <source media="(max-width: 640px)" srcset="/assets/photography/chopbox-storefront-480.webp">
+        <img src="/assets/photography/chopbox-storefront-736.webp" width="736" height="1308" fetchpriority="high" alt="The Chopbox restaurant storefront in Ghana">
+      </picture>
+    </figure>
+  </div>
+</section>
 
-<section class="page-section pilot-process"><div class="page-container pilot-process-grid"><div><h2>Guided setup, not a self-service switch.</h2><p>We work with participating businesses to configure accurate data, support staff and observe real use before reviewing what needs to improve.</p><ul><li>Restaurant and menu setup</li><li>WhatsApp workflow configuration</li><li>Staff onboarding</li><li>Live operating support</li><li>Review and refinement</li></ul></div><ol>@for (phase of timeline; track phase[0]) { <li><span>{{ phase[0] }}</span><div><h3>{{ phase[1] }}</h3><p>{{ phase[2] }}</p></div></li> }</ol></div></section>
+<!-- 2. VALUE STRIP -->
+<section class="value-strip" aria-label="Pilot highlights">
+  <div class="page-container value-strip-grid">
+    <article>
+      <i class="uil uil-whatsapp" aria-hidden="true"></i>
+      <div>
+        <strong>Works with WhatsApp</strong>
+        <span>Your existing number. No new app.</span>
+      </div>
+    </article>
+    <article>
+      <i class="uil uil-restaurant" aria-hidden="true"></i>
+      <div>
+        <strong>Built for restaurants</strong>
+        <span>Menus, orders and fulfilment.</span>
+      </div>
+    </article>
+    <article>
+      <i class="uil uil-shield-check" aria-hidden="true"></i>
+      <div>
+        <strong>Simple and reliable</strong>
+        <span>Clear, structured, permission-aware.</span>
+      </div>
+    </article>
+  </div>
+</section>
 
-<section class="page-section pilot-form-section"><div class="page-container pilot-form-grid"><div><h2>Is your food business a fit?</h2><p>The strongest pilot partners already receive regular customer enquiries or orders through WhatsApp and can provide direct operational feedback.</p><p>Restaurants, takeaways, cafés, chop bars, food vendors, caterers and healthy food brands can express interest.</p></div><div class="form-shell">
-  @if (applicationSubmitted) {
-    <div class="success-state" role="status" aria-live="polite"><span aria-hidden="true">✓</span><h2>Interest received</h2><p>Thank you. The OrderBridge team will review your details and contact you using the information provided.</p></div>
-  } @else {
-    <h2>Apply for the pilot</h2><p id="pilot-form-help">Tell us a little about your food business.</p>
-    @if (submissionError) { <div class="form-error" role="alert" tabindex="-1"><strong>Please check the form.</strong><p>{{ submissionError }}</p></div> }
-    <form aria-describedby="pilot-form-help" (submit)="submitApplication($event)" novalidate>
-      <div class="field"><label for="restaurant">Business name</label><input id="restaurant" name="Business name" required autocomplete="organization"></div>
-      <div class="field-row"><div class="field"><label for="name">Your name</label><input id="name" name="Applicant name" required autocomplete="name"></div><div class="field"><label for="email">Email address</label><input id="email" name="email" required type="email" autocomplete="email"></div></div>
-      <div class="field-row"><div class="field"><label for="phone">WhatsApp number</label><input id="phone" name="WhatsApp number" required type="tel" inputmode="tel" autocomplete="tel"></div><div class="field"><label for="type">Business type</label><select id="type" name="Business type" required><option value="" selected disabled>Select one</option><option>Restaurant</option><option>Takeaway</option><option>Café</option><option>Food vendor / chop bar</option><option>Caterer</option><option>Salad / healthy food brand</option><option>Other</option></select></div></div>
-      <div class="field"><label for="goals">What would you like OrderBridge to help with?</label><textarea id="goals" name="Pilot goals" required maxlength="1000" rows="5"></textarea></div>
-      <div class="honeypot" aria-hidden="true"><label for="company-website">Leave this field empty</label><input id="company-website" name="_honey" tabindex="-1" autocomplete="off"></div>
-      @for (key of utmKeys; track key) { <input type="hidden" [name]="key" [value]="utmValue(key)"> }
-      <label class="consent-check"><input type="checkbox" name="Contact permission" value="Granted" required><span>I agree that OrderBridge may contact me by email or WhatsApp about this pilot application.</span></label>
-      <button type="submit" class="button button-primary button-full" [disabled]="isSubmitting">{{ isSubmitting ? 'Sending your interest...' : 'Submit pilot interest' }}</button>
-      <p class="form-note">Your details are sent through FormSubmit and used to review and respond to your pilot interest.</p>
-    </form>
-  }
-</div></div></section>
+<!-- 3. ELIGIBILITY -->
+<section class="page-section pilot-eligibility-section">
+  <div class="page-container pilot-eligibility-grid">
+    <div>
+      <p class="eyebrow">Who the pilot is for</p>
+      <h2>A small group. A bigger opportunity.</h2>
+      <p>We are inviting a select number of restaurants in Ghana to join our pilot programme. You will get hands-on support as we set up your menu, WhatsApp ordering and operations together — and help us shape a product that truly works for local food businesses.</p>
+    </div>
+    <ul class="pilot-eligibility-list" aria-label="Pilot eligibility criteria">
+      @for (criterion of eligibility; track criterion) {
+        <li><i class="uil uil-check-circle" aria-hidden="true"></i>{{ criterion }}</li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- 4. TIMELINE -->
+<section class="page-section pilot-process">
+  <div class="page-container pilot-process-grid">
+    <div>
+      <p class="eyebrow">What the pilot includes</p>
+      <h2>Guided setup, not a self-service switch.</h2>
+      <p>We work closely with each restaurant over 14–21 days to configure accurate data, support staff and observe real operations before reviewing what needs to improve.</p>
+      <ul>
+        <li>Restaurant and menu configuration</li>
+        <li>WhatsApp ordering flow</li>
+        <li>Staff onboarding</li>
+        <li>Live operating support</li>
+        <li>Review and refinement session</li>
+      </ul>
+    </div>
+    <ol>
+      @for (phase of timeline; track phase[0]) {
+        <li>
+          <span>{{ phase[0] }}</span>
+          <div><h3>{{ phase[1] }}</h3><p>{{ phase[2] }}</p></div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<!-- 5. RESPONSIBILITIES -->
+<section class="page-section pilot-responsibilities-section">
+  <div class="page-container">
+    <div class="pilot-responsibilities-grid">
+      <article class="pilot-responsibilities-card">
+        <p class="panel-kicker">What you bring</p>
+        <p>You are the expert on your restaurant. We need your input to configure everything accurately.</p>
+        <ul>
+          @for (item of responsibilities.youBring; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </article>
+      <article class="pilot-responsibilities-card pilot-responsibilities-card--dark">
+        <p class="panel-kicker">What we set up</p>
+        <p>Our commitment to you throughout the pilot period.</p>
+        <ul>
+          @for (item of responsibilities.weSetUp; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. APPLICATION FORM -->
+<section class="page-section pilot-form-section" id="pilot-apply">
+  <div class="page-container pilot-form-grid">
+    <div>
+      <p class="eyebrow">Apply for the pilot</p>
+      <h2>Get started in a few minutes.</h2>
+      <p>Tell us a little about your restaurant and what you would like to try with OrderBridge.</p>
+      <ol class="pilot-next-steps" aria-label="What happens after you apply">
+        <li>
+          <div>
+            <strong>Application review</strong>
+            <p>The team reviews each application to check for a good operational fit.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>A conversation</strong>
+            <p>We contact you to discuss your restaurant, timing and any questions — then agree on a start date.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Setup and go live</strong>
+            <p>We configure your menu and WhatsApp flow together, then support you through live operations.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="form-shell">
+      @if (applicationSubmitted) {
+        <div class="success-state" role="status" aria-live="polite">
+          <span aria-hidden="true">✓</span>
+          <h2>Application received</h2>
+          <p>Thank you. The OrderBridge team will review your details and contact you to discuss fit and next steps.</p>
+        </div>
+      } @else {
+        <h2>Apply for the pilot</h2>
+        <p id="pilot-form-help">Tell us a little about your food business.</p>
+        @if (submissionError) {
+          <div class="form-error" role="alert" tabindex="-1">
+            <strong>Please check the form.</strong><p>{{ submissionError }}</p>
+          </div>
+        }
+        <form aria-describedby="pilot-form-help" (submit)="submitApplication($event)" novalidate>
+          <div class="field"><label for="restaurant">Business name</label><input id="restaurant" name="Business name" required autocomplete="organization"></div>
+          <div class="field-row">
+            <div class="field"><label for="name">Your name</label><input id="name" name="Applicant name" required autocomplete="name"></div>
+            <div class="field"><label for="email">Email address</label><input id="email" name="email" required type="email" autocomplete="email"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="phone">WhatsApp number</label><input id="phone" name="WhatsApp number" required type="tel" inputmode="tel" autocomplete="tel"></div>
+            <div class="field">
+              <label for="type">Business type</label>
+              <select id="type" name="Business type" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Restaurant</option>
+                <option>Takeaway</option>
+                <option>Café</option>
+                <option>Food vendor / chop bar</option>
+                <option>Caterer</option>
+                <option>Salad / healthy food brand</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="goals">What would you like OrderBridge to help with?</label><textarea id="goals" name="Pilot goals" required maxlength="1000" rows="5"></textarea></div>
+          <div class="honeypot" aria-hidden="true"><label for="company-website">Leave this field empty</label><input id="company-website" name="_honey" tabindex="-1" autocomplete="off"></div>
+          @for (key of utmKeys; track key) { <input type="hidden" [name]="key" [value]="utmValue(key)"> }
+          <label class="consent-check"><input type="checkbox" name="Contact permission" value="Granted" required><span>I agree that OrderBridge may contact me by email or WhatsApp about this pilot application.</span></label>
+          <button type="submit" class="button button-primary button-full" [disabled]="isSubmitting">{{ isSubmitting ? 'Sending your application...' : 'Apply for the pilot' }}</button>
+          <p class="form-note">Your details are sent through FormSubmit and used to review and respond to your pilot application.</p>
+        </form>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 7. PILOT LIMITATIONS NOTICE -->
+<section class="pilot-notice">
+  <div class="page-container">
+    <p><strong>A few things to know.</strong> This is a pilot, so some features may still be refined and you may encounter occasional issues. Not all future features will be available yet. No fee is charged during the pilot period. What happens after the 14–21 days depends on the conversation at the end of the review session.</p>
+  </div>
+</section>

@@ -1,24 +1,60 @@
 <section class="home-hero home-hero-refresh">
   <div class="page-container hero-refresh-grid">
     <div class="hero-refresh-copy reveal">
-      <p class="eyebrow">Built for restaurant conversations</p>
-      <h1>One chat. Clear <span>restaurant orders.</span></h1>
-      <p class="hero-refresh-intro">OrderBridge turns familiar WhatsApp chats into structured orders your team can review, confirm and fulfil.</p>
+      <p class="eyebrow">Restaurant WhatsApp ordering</p>
+      <h1>WhatsApp chats. <span>Confirmed orders.</span></h1>
+      <p class="hero-refresh-intro">OrderBridge turns everyday customer messages into clear orders your restaurant can review and fulfil.</p>
       <div class="button-row">
-        <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-primary">Book a demo</a>
+        <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-primary">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
         <a routerLink="/how-it-works" class="button button-secondary">See how it works</a>
       </div>
     </div>
 
-    <div class="hero-product reveal reveal-delay">
+    <div class="hero-scene reveal reveal-delay" aria-label="OrderBridge working with a Ghanaian restaurant">
+      <figure class="hero-restaurant">
+        <picture>
+          <source media="(max-width: 640px)" srcset="/assets/photography/chopbox-storefront-480.webp">
+          <img src="/assets/photography/chopbox-storefront-736.webp" width="736" height="1308" fetchpriority="high" alt="The Chopbox restaurant storefront in Ghana">
+        </picture>
+      </figure>
       <figure class="hero-phone">
-        <img
-          src="/assets/product/orderbridge-phone-menu.png"
-          width="408"
-          height="612"
-          fetchpriority="high"
-          alt="A customer receiving a restaurant menu with current items and prices in WhatsApp"
-        >
+        <img src="/assets/product/orderbridge-phone-menu.png" width="408" height="612" fetchpriority="high" alt="A WhatsApp conversation showing a restaurant menu with current items and prices">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="value-strip" aria-label="OrderBridge benefits">
+  <div class="page-container value-strip-grid">
+    <article><i class="uil uil-whatsapp" aria-hidden="true"></i><div><strong>Works with WhatsApp</strong><span>No new customer app.</span></div></article>
+    <article><i class="uil uil-restaurant" aria-hidden="true"></i><div><strong>Built for restaurants</strong><span>Menus, orders and fulfilment.</span></div></article>
+    <article><i class="uil uil-shield-check" aria-hidden="true"></i><div><strong>Clear and controlled</strong><span>Your team makes the decision.</span></div></article>
+  </div>
+</section>
+
+<section class="page-section home-process">
+  <div class="page-container">
+    <div class="home-section-heading">
+      <h2>From chat to kitchen, without the chaos.</h2>
+      <p>Customers keep the conversation they know. Your team receives the details it needs.</p>
+    </div>
+    <ol class="home-process-grid">
+      @for (step of steps; track step.number) {
+        <li>
+          <span class="process-number">{{ step.number }}</span>
+          <div><h3>{{ step.title }}</h3><p>{{ step.description }}</p></div>
+          @if (!$last) { <i class="uil uil-arrow-right process-arrow" aria-hidden="true"></i> }
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="page-section home-product-proof">
+  <div class="page-container product-proof-grid">
+    <div class="product-proof-visual reveal">
+      <figure class="product-phone-shot">
+        <img src="/assets/product/orderbridge-phone-menu.png" width="408" height="612" loading="lazy" alt="A phone showing a customer browsing the restaurant menu in WhatsApp">
       </figure>
       <aside class="order-result" aria-label="Example structured order">
         <div class="order-result-heading">
@@ -32,119 +68,57 @@
         </dl>
       </aside>
     </div>
-  </div>
-</section>
-
-<section class="value-strip" aria-label="OrderBridge benefits">
-  <div class="page-container value-strip-grid">
-    <article><i class="uil uil-comments" aria-hidden="true"></i><div><strong>Natural conversations</strong><span>Customers order in a familiar chat.</span></div></article>
-    <article><i class="uil uil-clipboard-notes" aria-hidden="true"></i><div><strong>Clear restaurant action</strong><span>Requests become complete, structured orders.</span></div></article>
-    <article><i class="uil uil-shield-check" aria-hidden="true"></i><div><strong>People stay in control</strong><span>Your team reviews every operational decision.</span></div></article>
-  </div>
-</section>
-
-<section class="page-section audience-section">
-  <div class="page-container">
-    <div class="section-copy audience-intro">
-      <h2>A better ordering experience on both sides.</h2>
-      <p>Customers keep the conversation they know. Restaurant teams get the structure they need.</p>
-    </div>
-
-    <div class="audience-stack">
-      <article class="audience-row audience-customer">
-        <div>
-          <span class="audience-label">For customers</span>
-          <h3>Simple to ask. Easy to confirm.</h3>
-          <p>Menu questions, choices and fulfilment details stay in one helpful conversation.</p>
-        </div>
-        <ul>
-          @for (item of customerHighlights; track item) { <li><span aria-hidden="true"><i class="uil uil-check"></i></span>{{ item }}</li> }
-        </ul>
-      </article>
-
-      <article class="audience-row audience-restaurant">
-        <div>
-          <span class="audience-label">For restaurant teams</span>
-          <h3>More control. Less manual work.</h3>
-          <p>Every order arrives with the context your team needs to make the next decision.</p>
-        </div>
-        <ul>
-          @for (item of restaurantHighlights; track item) { <li><span aria-hidden="true"><i class="uil uil-check"></i></span>{{ item }}</li> }
-        </ul>
-      </article>
+    <div class="product-proof-copy">
+      <h2>One conversation. Clear restaurant action.</h2>
+      <p>OrderBridge understands the request, structures the order and keeps restaurant staff in control.</p>
+      <ul>
+        @for (item of productHighlights; track item) { <li><i class="uil uil-check" aria-hidden="true"></i>{{ item }}</li> }
+      </ul>
+      <a routerLink="/product" class="button button-primary">Explore the product <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
     </div>
   </div>
 </section>
 
-<section class="page-section lifecycle-section">
-  <div class="page-container">
-    <div class="section-copy lifecycle-intro">
-      <h2>From discovery to feedback.</h2>
-      <p>One connected order journey for customers and restaurant teams.</p>
+<section class="page-section owner-benefits">
+  <div class="page-container owner-benefits-grid">
+    <div class="owner-benefits-heading">
+      <h2>Less noise. More orders.</h2>
+      <p>Practical tools for restaurants that already sell through WhatsApp.</p>
     </div>
-    <ol class="lifecycle-grid">
-      @for (stage of lifecycle; track stage.title) {
-        <li>
-          <span class="lifecycle-icon " aria-hidden="true"><i [class]="stage.icon"></i></span>
-          <h3>{{ stage.title }}</h3>
-          <p>{{ stage.description }}</p>
-        </li>
-      }
-    </ol>
-  </div>
-</section>
-
-<section class="control-showcase">
-  <div class="page-container control-showcase-grid">
-    <div class="control-showcase-copy">
-      <h2>Useful intelligence. Controlled consequences.</h2>
-      <p>OrderBridge understands the conversation while trusted restaurant data and permissions control what happens next.</p>
-      <a routerLink="/trust" class="button button-light">See how control works</a>
-    </div>
-    <div class="control-principles">
-      @for (principle of trustHighlights; track principle[0]) {
-        <article><h3>{{ principle[0] }}</h3><p>{{ principle[1] }}</p></article>
+    <div class="owner-benefit-list">
+      @for (benefit of ownerBenefits; track benefit.title) {
+        <article>
+          <i [class]="benefit.icon" aria-hidden="true"></i>
+          <div><h3>{{ benefit.title }}</h3><p>{{ benefit.description }}</p></div>
+        </article>
       }
     </div>
   </div>
 </section>
 
-<section class="page-section ghana-story">
-  <div class="page-container ghana-story-grid">
-    <div class="ghana-story-copy">
-      <p class="eyebrow">Built in Ghana</p>
-      <h2>Made for the way food businesses already sell.</h2>
-      <p>OrderBridge adds structure to familiar messaging behaviour without asking customers to install another app.</p>
-      <a routerLink="/for-restaurants" class="text-link">See who OrderBridge is for <span aria-hidden="true">→</span></a>
-    </div>
+<section class="restaurant-impact">
+  <div class="page-container restaurant-impact-grid">
     <figure>
       <picture>
         <source media="(max-width: 640px)" srcset="/assets/photography/chopbox-storefront-480.webp">
-        <img src="/assets/photography/chopbox-storefront-736.webp" width="736" height="1308" loading="lazy" alt="The Chopbox food business storefront in Ghana">
-      </picture>
-    </figure>
-  </div>
-</section>
-
-<section class="page-section pilot-section-refresh">
-  <div class="page-container pilot-refresh-grid">
-    <figure>
-      <picture>
-        <source media="(max-width: 640px)" srcset="/assets/photography/shawarma-meal-480.webp">
-        <source media="(max-width: 1024px)" srcset="/assets/photography/shawarma-meal-760.webp">
-        <img src="/assets/photography/shawarma-meal-940.webp" width="940" height="1670" loading="lazy" alt="A shawarma meal, fries and drink prepared by a food business">
+        <img src="/assets/photography/chopbox-storefront-736.webp" width="736" height="1308" loading="lazy" alt="The Chopbox restaurant storefront in Ghana">
       </picture>
     </figure>
     <div>
-      <h2>A focused restaurant pilot.</h2>
-      <p>We configure your menu and workflow, support live use, then refine the product with direct operating feedback.</p>
-      <ul class="pilot-refresh-list">
-        <li><strong>Set up</strong><span>Restaurant details, menu, delivery rules and authorised contacts.</span></li>
-        <li><strong>Use it live</strong><span>Customers and staff run the workflow in real conditions.</span></li>
-        <li><strong>Review</strong><span>We identify gaps and agree on the most valuable improvements.</span></li>
-      </ul>
-      <a routerLink="/pilot" [queryParams]="utm.queryParams()" class="button button-primary">Explore the pilot</a>
+      <span>Built in Ghana</span>
+      <h2>Fits the way restaurants already sell.</h2>
+      <p>Keep your WhatsApp workflow. Add clearer orders, better updates and less manual follow-up.</p>
+      <a routerLink="/for-restaurants" class="button button-light">For restaurant owners <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
     </div>
+  </div>
+</section>
+
+<section class="home-trust">
+  <div class="page-container home-trust-grid">
+    <div class="home-trust-heading"><h2>Your menu. Your rules.</h2><p>AI helps with the conversation. Trusted restaurant data controls the outcome.</p></div>
+    @for (item of trustPoints; track item.title) {
+      <article><i [class]="item.icon" aria-hidden="true"></i><div><h3>{{ item.title }}</h3><p>{{ item.description }}</p></div></article>
+    }
   </div>
 </section>
 
@@ -159,22 +133,11 @@
       @for (item of faqHighlights; track item.question; let index = $index) {
         <article class="faq-preview-item" [class.is-open]="openFaqIndex === index">
           <h3>
-            <button
-              type="button"
-              class="faq-question"
-              [attr.aria-expanded]="openFaqIndex === index"
-              [attr.aria-controls]="'home-faq-answer-' + index"
-              (click)="toggleFaq(index)"
-            >
-              <span>{{ item.question }}</span>
-              <span class="faq-toggle" aria-hidden="true">+</span>
+            <button type="button" class="faq-question" [attr.aria-expanded]="openFaqIndex === index" [attr.aria-controls]="'home-faq-answer-' + index" (click)="toggleFaq(index)">
+              <span>{{ item.question }}</span><span class="faq-toggle" aria-hidden="true">+</span>
             </button>
           </h3>
-          <div
-            class="faq-answer"
-            [id]="'home-faq-answer-' + index"
-            [attr.aria-hidden]="openFaqIndex !== index"
-          >
+          <div class="faq-answer" [id]="'home-faq-answer-' + index" [attr.aria-hidden]="openFaqIndex !== index">
             <div><p>{{ item.answer }}</p></div>
           </div>
         </article>
@@ -185,7 +148,7 @@
 
 <section class="final-cta final-cta-refresh">
   <div class="page-container final-cta-inner">
-    <div><h2>Ready to turn conversations into clear orders?</h2><p>See how OrderBridge can work with your restaurant.</p></div>
-    <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-light">Book a demo</a>
+    <div><h2>Ready to turn chats into orders?</h2><p>See OrderBridge working with your restaurant workflow.</p></div>
+    <a routerLink="/book-demo" [queryParams]="utm.queryParams()" class="button button-light">Book a demo <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
   </div>
 </section>

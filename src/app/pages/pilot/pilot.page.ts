@@ -1,13 +1,21 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SITE_CONFIG } from '@core/config/site.config';
-import { PILOT_TIMELINE } from '@core/constants/site-content.constants';
+import {
+  PILOT_TIMELINE,
+  PILOT_ELIGIBILITY,
+  PILOT_RESPONSIBILITIES,
+  type PilotResponsibilities
+} from '@core/constants/site-content.constants';
 import { UTM_KEYS, UtmService } from '@core/services/utm.service';
 
-@Component({ selector: 'app-pilot-page', templateUrl: './pilot.page.html' })
+@Component({ selector: 'app-pilot-page', imports: [RouterLink], templateUrl: './pilot.page.html' })
 export class PilotPage {
   readonly utm = inject(UtmService);
   readonly utmKeys = UTM_KEYS;
   readonly timeline = PILOT_TIMELINE;
+  readonly eligibility = PILOT_ELIGIBILITY;
+  readonly responsibilities: PilotResponsibilities = PILOT_RESPONSIBILITIES;
   applicationSubmitted = false;
   isSubmitting = false;
   submissionError = '';
@@ -22,7 +30,7 @@ export class PilotPage {
     if (!form || this.isSubmitting) return;
 
     if (!form.reportValidity()) {
-      this.submissionError = 'Please complete the required fields before sending your interest.';
+      this.submissionError = 'Please complete the required fields before sending your application.';
       form.querySelector<HTMLElement>(':invalid')?.focus();
       return;
     }
