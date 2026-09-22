@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { SITE_CONFIG } from '@core/config/site.config';
-import { FAQ_ITEMS } from '@core/constants/site-content.constants';
+import { FAQ_GROUPS } from '@core/constants/faq-content.constants';
 import { SeoConfig } from '@core/services/seo.service';
 
 const organizationSchema = {
@@ -91,7 +91,7 @@ export const routes: Routes = [
           'Frequently Asked Questions - OrderBridge AI',
           'Answers about customer setup, restaurant acceptance, delivery, receipts, staff permissions, campaigns and the OrderBridge pilot.',
           '/faq',
-          [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ_ITEMS.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) }, breadcrumb('FAQ', '/faq')]
+          [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ_GROUPS.flatMap(group => group.items).map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) }, breadcrumb('FAQ', '/faq')]
         ),
         loadComponent: () => import('@pages/faq/faq.page').then((m) => m.FaqPage)
       },
@@ -102,7 +102,7 @@ export const routes: Routes = [
       },
       {
         path: 'terms',
-        data: seo('Website Terms - OrderBridge AI', 'Initial terms for using the OrderBridge AI public website, demo booking and pilot enquiry forms.', '/terms', breadcrumb('Terms', '/terms')),
+        data: seo('Website Terms - OrderBridge AI', 'Terms for using the OrderBridge AI public website, demo booking and pilot enquiry forms.', '/terms', breadcrumb('Terms', '/terms')),
         loadComponent: () => import('@pages/terms/terms.page').then((m) => m.TermsPage)
       },
       {

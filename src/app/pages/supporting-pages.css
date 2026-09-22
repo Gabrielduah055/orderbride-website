@@ -1,0 +1,21 @@
+:host { display: block; background: var(--surface-elevated); color: var(--text); font-size: .9rem; }
+.page-container { max-width: 72rem; }
+:host h1 { font-size: clamp(2.2rem, 3.5vw, 3.15rem); line-height: 1.12; }
+:host h2 { font-size: clamp(1.55rem, 2.6vw, 2.4rem); line-height: 1.2; }
+:host h3 { font-size: 1rem; line-height: 1.4; }
+h1 span { color: var(--green-strong); }
+.support-hero { padding-block: 3.5rem 2.5rem; }
+.support-hero h1 { max-width: 19em; }
+.support-intro { max-width: 40rem; margin-bottom: 0; }
+.support-section { padding-block: 3.5rem; }
+.support-tint { background: var(--surface-tinted); }
+.button i { margin-left: .6rem; }
+.support-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.75rem 2rem; margin-block: 1rem 2.5rem; background: var(--surface-tinted); border: 1px solid var(--border); border-radius: .8rem; }
+.support-cta h2 { font-size: 1.55rem; margin-bottom: .5rem; }
+.support-cta p { margin-bottom: .6rem; }
+.support-cta .eyebrow { margin-bottom: .6rem; }
+.support-cta .button { flex-shrink: 0; }
+@media (max-width: 767px) {
+  .support-hero, .support-section { padding-block: 2.5rem; }
+  .support-cta { flex-direction: column; align-items: start; padding: 1.5rem; gap: 1.25rem; }
+}

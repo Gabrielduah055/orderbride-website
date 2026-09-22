@@ -1,0 +1,30 @@
+.booking-section { padding-bottom: 3rem; }
+.booking-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 3rem; align-items: start; }
+.booking-details h2, .booking-panel h2 { font-size: 1.4rem; }
+.booking-agenda { list-style: none; margin: 1.75rem 0; padding: 0; display: grid; gap: 1.4rem; }
+.booking-agenda li { display: flex; align-items: start; gap: 1rem; }
+.booking-agenda i { font-size: 1.65rem; color: var(--green-strong); line-height: 1.2; }
+.booking-agenda h3 { margin-bottom: .4rem; font-size: .9rem; }
+.booking-agenda p { font-size: .85rem; margin: 0; }
+.booking-prepare { padding: 1.25rem; border-radius: .65rem; background: var(--surface-tinted); }
+.booking-prepare p { font-size: .85rem; margin: 0; }
+.booking-contact { margin-top: 1.5rem; font-size: .82rem; }
+.booking-contact a, .booking-note a { color: var(--green-strong); text-decoration: underline; text-underline-offset: 3px; }
+.booking-panel { min-width: 0; border: 1px solid var(--border); border-radius: .8rem; overflow: hidden; }
+.booking-panel-heading { padding: 1.5rem; border-bottom: 1px solid var(--border); }
+.booking-panel-heading p { font-size: .85rem; margin: 0; }
+.calendar-start { padding: 2rem 1.5rem; text-align: center; background: var(--surface-tinted); }
+.calendar-start > i { font-size: 2.2rem; color: var(--green-strong); }
+.calendar-start h3 { margin-top: 1rem; }
+.calendar-start p { font-size: .85rem; max-width: 28rem; margin-inline: auto; }
+.booking-panel iframe { display: block; width: 100%; height: 46rem; border: 0; background: var(--surface-elevated); }
+.booking-status p { padding: 1rem 1.5rem; margin: 0; font-size: .85rem; }
+.booking-fallback { padding: 1rem 1.5rem; border-top: 1px solid var(--border); }
+.booking-fallback a { display: inline-block; color: var(--green-strong); text-decoration: underline; text-underline-offset: 3px; font-size: .85rem; font-weight: 600; }
+.booking-fallback p { font-size: .78rem; margin: .5rem 0 0; }
+.booking-note { padding-top: 1.5rem; }
+.booking-note p { margin: 0; max-width: 54rem; font-size: .78rem; }
+@media (max-width: 900px) {
+  .booking-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .booking-panel { grid-row: 1; }
+}

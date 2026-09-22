@@ -1,7 +1,29 @@
-<section class="page-hero demo-hero"><div class="page-container narrow-hero"><p class="eyebrow">Live product walkthrough</p><h1>See OrderBridge in the context of your restaurant.</h1><p>Choose a convenient time for a focused demo and pilot conversation built around the way your food business already works.</p></div></section>
-
-<section class="page-section demo-section"><div class="page-container demo-layout"><aside><h2>A practical 30-minute conversation.</h2><ul><li>Walk through customer ordering and restaurant acceptance.</li><li>Discuss your current menu, delivery and WhatsApp workflow.</li><li>Assess whether your business is a suitable pilot fit.</li></ul><p><strong>Availability:</strong> Monday-Friday, 9:00 AM-6:00 PM, Africa/Accra.</p></aside><div class="calendar-shell">
-  @if (calendarLoading) { <div class="calendar-skeleton" aria-live="polite"><span>Loading the booking calendar...</span></div> }
-  <iframe [src]="bookingEmbedUrl" title="Book an OrderBridge demo and pilot consultation" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="camera; microphone; fullscreen" (load)="calendarLoaded()"></iframe>
-  <p>Having trouble with the calendar? <a [href]="bookingUrl" target="_blank" rel="noopener noreferrer">Open the booking page on Cal.com</a>.</p>
-</div></div><p class="third-party-note">Booking details are handled by Cal.com. You and the OrderBridge host will receive confirmation by email.</p></section>
+<section class="support-hero"><div class="page-container"><p class="eyebrow">Book a demo</p><h1>Your restaurant.<br><span>Let's walk through it.</span></h1><p class="support-intro">See how OrderBridge handles a WhatsApp order, from the first menu question to your team's acceptance and fulfilment.</p></div></section>
+<section class="booking-section">
+  <div class="page-container booking-grid">
+    <aside class="booking-details" aria-label="What to expect from your demo">
+      <h2>A conversation about your workflow.</h2>
+      <ul class="booking-agenda">
+        <li><i class="uil uil-comment-dots" aria-hidden="true"></i><div><h3>See the customer experience</h3><p>Menu questions, order details and submission through WhatsApp.</p></div></li>
+        <li><i class="uil uil-clipboard-notes" aria-hidden="true"></i><div><h3>See the restaurant controls</h3><p>Review, acceptance, updates and receipts.</p></div></li>
+        <li><i class="uil uil-users-alt" aria-hidden="true"></i><div><h3>Discuss your restaurant</h3><p>Talk through setup, questions and whether the pilot fits.</p></div></li>
+      </ul>
+      <div class="booking-prepare"><h3>Helpful to bring</h3><p>Your current menu and a quick description of how you take orders. No customer records are needed.</p></div>
+      <p class="booking-contact">Need help choosing a time? <a [href]="'mailto:' + contactEmail">Email our team</a>.</p>
+    </aside>
+    <div class="booking-panel">
+      <div class="booking-panel-heading"><h2>Choose a time that works.</h2><p>The calendar shows current availability, meeting length and timezone. Check those details before confirming.</p></div>
+      @if (!calendarRequested) {
+        <div class="calendar-start"><i class="uil uil-calendar-alt" aria-hidden="true"></i><h3>Ready when you are.</h3><p>Load the Cal.com calendar to choose a time. This connects your browser to Cal.com.</p><button type="button" class="button button-primary" (click)="loadCalendar()">Load booking calendar <i class="uil uil-arrow-right" aria-hidden="true"></i></button></div>
+      } @else {
+        <div class="booking-status" role="status" aria-live="polite">
+          @if (calendarLoading) { <p>Loading the booking calendar…</p> }
+          @if (calendarSlow) { <p>The calendar is taking longer than expected. You can use the direct booking link below.</p> }
+        </div>
+        <iframe [src]="bookingEmbedUrl" title="Book an OrderBridge demo and pilot consultation" referrerpolicy="strict-origin-when-cross-origin" (load)="calendarLoaded()" [attr.aria-busy]="calendarLoading"></iframe>
+      }
+      <div class="booking-fallback"><a [href]="bookingUrl" target="_blank" rel="noopener noreferrer">Open booking on Cal.com <i class="uil uil-external-link-alt" aria-hidden="true"></i><span class="sr-only"> (opens in a new tab)</span></a><p>Use this link if the embedded calendar is blank or unavailable.</p></div>
+    </div>
+  </div>
+  <div class="page-container booking-note"><p>Booking details are handled through Cal.com. Complete the calendar's confirmation step to make a booking, and keep the confirmation details for rescheduling. See our <a routerLink="/privacy">website privacy notice</a>.</p></div>
+</section>

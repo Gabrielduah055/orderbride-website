@@ -9,7 +9,7 @@ import {
 } from '@core/constants/site-content.constants';
 import { UTM_KEYS, UtmService } from '@core/services/utm.service';
 
-@Component({ selector: 'app-pilot-page', imports: [RouterLink], templateUrl: './pilot.page.html' })
+@Component({ selector: 'app-pilot-page', imports: [RouterLink], templateUrl: './pilot.page.html', styleUrl: './pilot.page.css' })
 export class PilotPage {
   readonly utm = inject(UtmService);
   readonly utmKeys = UTM_KEYS;
@@ -19,6 +19,7 @@ export class PilotPage {
   applicationSubmitted = false;
   isSubmitting = false;
   submissionError = '';
+  submissionAttempted = false;
 
   utmValue(key: (typeof UTM_KEYS)[number]): string {
     return this.utm.values()[key] ?? '';
@@ -29,6 +30,7 @@ export class PilotPage {
     const form = event.currentTarget as HTMLFormElement | null;
     if (!form || this.isSubmitting) return;
 
+    this.submissionAttempted = true;
     if (!form.reportValidity()) {
       this.submissionError = 'Please complete the required fields before sending your application.';
       form.querySelector<HTMLElement>(':invalid')?.focus();

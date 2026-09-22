@@ -89,6 +89,7 @@ html[data-theme='dark'] .brand-logo-dark { display: block; }
 .header-actions { display: flex; align-items: center; gap: .65rem; }
 .theme-select select { min-height: 2.65rem; border: 1px solid var(--border); border-radius: .65rem; background: var(--surface-elevated); color: var(--text); padding: 0 1.9rem 0 .75rem; font-size: .74rem; }
 .menu-trigger { display: none; min-width: 3.25rem; min-height: 2.75rem; border: 1px solid var(--border); border-radius: .65rem; background: var(--surface-elevated); color: var(--text); font-size: .76rem; font-weight: 600; }
+.menu-trigger i { display: block; font-size: 1.65rem; line-height: 1; }
 .mobile-menu { display: none; }
 
 .button { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: .72rem; padding: .78rem 1.25rem; font-size: .88rem; font-weight: 600; line-height: 1; white-space: nowrap; transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease; }
@@ -471,7 +472,7 @@ p { color: var(--muted); line-height: 1.75; }
 .field label { color: var(--text); font-size: .82rem; font-weight: 600; }
 .field input, .field select, .field textarea { width: 100%; border: 1px solid var(--border); border-radius: .65rem; background: var(--surface); color: var(--text); padding: .85rem .9rem; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 25%, transparent); outline: none; }
-.field input:invalid:not(:focus):not(:placeholder-shown), .field textarea:invalid:not(:focus):not(:placeholder-shown) { border-color: #c14444; }
+.field input:user-invalid, .field textarea:user-invalid, .field select:user-invalid { border-color: #c14444; }
 .honeypot { position: absolute; left: -9999px; }
 .consent-check { display: flex; align-items: flex-start; gap: .7rem; color: var(--muted); font-size: .76rem; line-height: 1.6; }
 .consent-check input { width: 1.1rem; height: 1.1rem; margin-top: .15rem; accent-color: var(--green); }
